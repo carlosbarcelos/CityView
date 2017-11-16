@@ -44,117 +44,107 @@ map.on('load', function () {
     },
     'paint': {
       'circle-radius': 4,
-      'circle-color': 'rgba(208,208,112,.5)'
+      'circle-color': 'rgba(102,102,0,.5)'
     }
   });
 
-  // Trash Schedule Layer
-  map.addSource('trashschedule', {
-      type: "vector",
-      url: "mapbox://surv-mqp.3ho0uq0o"
+  // Monday Recycling Layer
+  map.addSource('recycling-monday', {
+      type: 'vector',
+      url: 'mapbox://surv-mqp.asq2dowm'
+  });
+  map.addLayer({
+    'id': 'recycling-monday',
+    'type': 'circle',
+    'source': 'recycling-monday',
+    'source-layer': 'RecyclingMonday-cpj0mg',
+    'layout': {
+      'visibility': 'visible'
+    },
+    'paint': {
+      'circle-radius': 4,
+      'circle-color': 'rgba(0,179,179,.5)'
+    }
   });
 
+  //  Tuesday Recycling Layer
+  map.addSource('recycling-tuesday', {
+      type: 'vector',
+      url: 'mapbox://surv-mqp.3chr4167'
+  });
   map.addLayer({
-      "id": "trashschedule-heat",
-      "type": "heatmap",
-      "source": "trashschedule",
-      'source-layer': 'trash-schedules-by-address-6lkr3h',
-      "maxzoom": 9,
-      "paint": {
-          //Increase the heatmap weight based on frequency and property magnitude
-          "heatmap-weight": {
-              "property": "mag",
-              "type": "exponential",
-              "stops": [
-                  [0, 0],
-                  [6, 1]
-              ]
-          },
-          //Increase the heatmap color weight weight by zoom level
-          //heatmap-ntensity is a multiplier on top of heatmap-weight
-          "heatmap-intensity": {
-              "stops": [
-                  [0, 1],
-                  [9, 3]
-              ]
-          },
-          //Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
-          //Begin color ramp at 0-stop with a 0-transparancy color
-          //to create a blur-like effect.
-          "heatmap-color": [
-              "interpolate",
-              ["linear"],
-              ["heatmap-density"],
-              0, "rgba(33,102,172,0)",
-              0.2, "rgb(103,169,207)",
-              0.4, "rgb(209,229,240)",
-              0.6, "rgb(253,219,199)",
-              0.8, "rgb(239,138,98)",
-              1, "rgb(178,24,43)"
-          ],
-          //Adjust the heatmap radius by zoom level
-          "heatmap-radius": {
-              "stops": [
-                  [0, 2],
-                  [9, 20]
-              ]
-          },
-          //Transition from heatmap to circle layer by zoom level
-          "heatmap-opacity": {
-              "default": 1,
-              "stops": [
-                  [7, 1],
-                  [9, 0]
-              ]
-          },
-      }
-  }, 'waterway-label');
+    'id': 'recycling-tuesday',
+    'type': 'circle',
+    'source': 'recycling-tuesday',
+    'source-layer': 'RecyclingTuesday-194h75',
+    'layout': {
+      'visibility': 'visible'
+    },
+    'paint': {
+      'circle-radius': 4,
+      'circle-color': 'rgba(38,153,0,.5)'
+    }
+  });
 
+  // Wednesday Recycling Layer
+  map.addSource('recycling-wednesday', {
+      type: 'vector',
+      url: 'mapbox://surv-mqp.cik36us1'
+  });
   map.addLayer({
-      "id": "trashschedule-point",
-      "type": "circle",
-      "source": "trashschedule",
-      'source-layer': 'trash-schedules-by-address-6lkr3h',
-      "minzoom": 7,
-      "paint": {
-          //Size circle raidus by earthquake magnitude and zoom level
-          "circle-radius": {
-              "property": "mag",
-              "type": "exponential",
-              "stops": [
-                  [{ zoom: 7, value: 1 }, 1],
-                  [{ zoom: 7, value: 6 }, 4],
-                  [{ zoom: 16, value: 1 }, 5],
-                  [{ zoom: 16, value: 6 }, 50],
-              ]
-          },
-          //Color circle by earthquake magnitude
-          "circle-color": {
-              "property": "Trash",
-              "type": "exponential",
-              "stops": [
-                  ['M', "rgba(33,102,172,0)"],
-                  ['T', "rgb(103,169,207)"],
-                  ['W', "rgb(209,229,240)"],
-                  ['TH', "rgb(253,219,199)"],
-                  ['F', "rgb(239,138,98)"],
-                  ['St', "rgb(178,24,43)"]
-              ]
-          },
-          "circle-stroke-color": "white",
-          "circle-stroke-width": 1,
-          //Transition from heatmap to circle layer by zoom level
-          "circle-opacity": {
-              "stops": [
-                  [7, 0],
-                  [8, 1]
-              ]
-          }
-      }
-  }, 'waterway-label');
-});
+    'id': 'recycling-wednesday',
+    'type': 'circle',
+    'source': 'recycling-wednesday',
+    'source-layer': 'RecyclingWednesday-792mo0',
+    'layout': {
+      'visibility': 'visible'
+    },
+    'paint': {
+      'circle-radius': 4,
+      'circle-color': 'rgba(89,0,179,.5)'
+    }
+  });
 
-var toggleableLayerIds = [ 'contours', 'streetlights', 'trashschedule'];
+  // Thursday Recycling Layer
+  map.addSource('recycling-thursday', {
+      type: 'vector',
+      url: 'mapbox://surv-mqp.4tm7g9jf'
+  });
+  map.addLayer({
+    'id': 'recycling-thursday',
+    'type': 'circle',
+    'source': 'recycling-thursday',
+    'source-layer': 'RecyclingThursday-34gtcb',
+    'layout': {
+      'visibility': 'visible'
+    },
+    'paint': {
+      'circle-radius': 4,
+      'circle-color': 'rgba(230,115,0,.5)'
+    }
+  });
+
+  // Friday Recycling Layer
+  map.addSource('recycling-friday', {
+      type: 'vector',
+      url: 'mapbox://surv-mqp.7k6h0q88'
+  });
+  map.addLayer({
+    'id': 'recycling-friday',
+    'type': 'circle',
+    'source': 'recycling-friday',
+    'source-layer': 'RecyclingFriday-58cxoc',
+    'layout': {
+      'visibility': 'visible'
+    },
+    'paint': {
+      'circle-radius': 4,
+      'circle-color': 'rgba(204,0,0,.5)'
+    }
+  });
+})
+
+var toggleableLayerIds = [ 'contours', 'streetlights', 'recycling-monday', 'recycling-tuesday', 'recycling-wednesday', 'recycling-thursday', 'recycling-friday'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
   var id = toggleableLayerIds[i];

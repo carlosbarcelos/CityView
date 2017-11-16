@@ -7,9 +7,36 @@
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" type="text/css" href="css/mapboxSandbox.css">
 </head>
-<body>
-  <div id ='map'></div>
-  <nav id="menu"></nav>
-  <script src="js/mapboxSandbox.js"></script>
+<body>                   
+	<header class= tm-header>
+		<div class="tm-container">
+			<a href="HomePage.html">
+			<img src="Images/SURV_logo2.png" alt="logo" width="120" class="surv-logo">
+			<a href="https://www.wpi.edu">
+			<img src="Images/WPI_logo.png" alt="WPI logo" width="120" class="wpi-logo">
+			<a href="https://www.nsf.gov">
+			<img src="Images/nsf_logo.jpg" alt="NSF logo" width="120" class="nsf-logo">
+			<nav class ="tm-nav">
+				<ul>
+					<li><a href="HomePage.html">Home</a></li>
+					<li><a href="AboutPage.html">About</a></li>
+					<li class="dropdown">
+						<a href="javascript:void(0)" class="dropbtn">Research + Projects</a>
+    					<div class="dropdown-content">
+      						<!-- <a href="#">Link 1</a> -->
+      						<a href="mapboxSandbox.html">Data Animation</a>
+     						<a href="3DheatmapPage.html">3D Visualization</a>
+     						<a href="3DhmTimePage.html">3D Visual Interaction</a>
+     						<a href="Google_heatmapPage.html">Data Upload Example</a>
+   						</div>
+					</li>
+					<li><a href="TeamPage.html">Contact Our Team</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<div id ='map'></div>
+  	<nav id="menu"></nav>
+  	<script src="js/mapboxSandbox.js"></script>
 </body>
 </html>

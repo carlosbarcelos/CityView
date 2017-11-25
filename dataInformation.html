@@ -5,7 +5,12 @@
   <title>Information on Data Used</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
 <body>
   <h1>On Spatial Temporal Datasets</h1>
@@ -22,53 +27,76 @@
   <p>These are the data sets we used and information about them.</p>
   <hr>
 
-  <h1>Spatially Static and Temporally Static</h1>
-  <p>This type of data refer to fixed points in space. When applied to a map they
-    reveal information about geographical distribution of some dataset.
-  </p>
-  <p>These are the spatially statics and temporally static data sets we used and information about them.</p>
-  <ul>
-    <li>Streetlight Locations
-      <a href="datasets/spatial-static_temporal-static/streetlight-locations.csv" download><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a>
-    </li>
-    <ul>
-      <li>Boston provides information on the street lights in the city. The CSV containing this information contains 74065 street lights listed by their latitude and longitude.</li>
-    </ul>
-  </ul>
-  <hr>
+  <!--Top-Left-->
+  <div class="col-md-6 bg-info">
+    <div class="container-fluid">
+      <h1>Spatially Static and Temporally Static
+        <a href="datasets/spatial-static_temporal-static.html"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+      </h1>
+      <p>This type of data refer to fixed points in space. When applied to a map they
+        reveal information about geographical distribution of some dataset.
+      </p>
+      <p>These are the spatially statics and temporally static data sets we used and information about them.</p>
+      <ul>
+        <li>Streetlight Locations
+          <a href="datasets/spatial-static_temporal-static/streetlight-locations.csv" download><i class="fa fa-download fa-2x" aria-hidden="true"></i></a>
+        </li>
+        <ul>
+          <li>Boston provides information on the street lights in the city. The CSV containing this information contains 74065 street lights listed by their latitude and longitude.</li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+  <!--Top-Right-->
+  <div class="col-md-6 bg-secondary">
+    <div class="container-fluid">
+      <h1>Spatially Static and Temporally Dynamic
+        <a href="datasets/spatial-static_temporal-dynamic.html"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+      </h1>
+      <p>This type of data shows the change in a particular location over time. This
+        can refer to the change of a number of catagories of data, often relating to
+        the collection or redistribution of some entity at a location.
+      </p>
+      <p>These are the spatially static and temporally dynamic data sets we used and information about them.</p>
+      <ul>
+        <li>Trash Schedule
+          <a href="datasets/spatial-static_temporal-dynamic/trash-schedules-by-address.csv" download><i class="fa fa-download fa-2x" aria-hidden="true"></i></a>
+        </li>
+        <ul>
+          <li>Trash pickup occurs in specific locations in the city on a timely basis. Trash pickup can be used to observe traffic patterns and determine bottlenecks.</li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+  <!--Bottom-Left-->
+  <div class="col-md-6 bg-danger">
+    <div class="container-fluid">
+      <h1>Spatially Dynamic and Temporally Static</h1>
+      <p>This type of data is impossible due to the fact that it would require instantaniou change.</p>
+    </div>
+  </div>
+  <!--Bottom-Right-->
+  <div class="col-md-6 bg-info">
+    <div class="container-fluid">
+      <h1>Spatially Dynamic and Temporally Dynamic
+        <a href="datasets/spatial-dynamic_temporal-dynamic.html"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+      </h1>
+      <p>This type of data shows how an object moves over time. By linking together
+        many datapoints for a single object with unique time and location values, it
+        possible to view change over time. The most appropraite analogy for this behavior
+        is how an object travels.</p>
+        <p>These are the spatially dynamic and temporally dynamic data sets we used and information about them.</p>
+        <ul>
+          <li>Boston Hubway Bikeshare
+            <a href="datasets/spatial-dynamic_temporal-dynamic/201501-hubway-tripdata-StartEnd.csv" download><i class="fa fa-download fa-2x" aria-hidden="true"></i></a>
+          </li>
+          <ul>
+            <li>Bike share information lists the times and locations for each pickup and dropoff of the Boston Hubway bike share system. With this data it is possible to track how bikes move around the city.</li>
+            <li><a href="https://surv-mqp.carto.com/builder/0db1bf10-825d-45e0-8755-6ebf58608281/embed">Example</a></li>
+          </ul>
+        </ul>
+      </div>
 
-  <h1>Spatially Static and Temporally Dynamic</h1>
-  <p>This type of data shows the change in a particular location over time. This
-   can refer to the change of a number of catagories of data, often relating to
-   the collection or redistribution of some entity at a location.
-  </p>
-  <p>These are the spatially static and temporally dynamic data sets we used and information about them.</p>
-  <ul>
-    <li>Trash Schedule
-      <a href="datasets/spatial-static_temporal-dynamic/trash-schedules-by-address.csv" download><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a>
-    </li>
-    <ul>
-      <li>Trash pickup occurs in specific locations in the city on a timely basis. Trash pickup can be used to observe traffic patterns and determine bottlenecks.</li>
-    </ul>
-  </ul>
-  <hr>
-
-  <h1>Spatially Dynamic and Temporally Dynamic</h1>
-  <p>This type of data shows how an object moves over time. By linking together
-      many datapoints for a single object with unique time and location values, it
-    possible to view change over time. The most appropraite analogy for this behavior
-  is how an object travels.</p>
-  <p>These are the spatially dynamic and temporally dynamic data sets we used and information about them.</p>
-  <ul>
-    <li>Boston Hubway Bikeshare
-      <a href="datasets/spatial-dynamic_temporal-dynamic/201501-hubway-tripdata-StartEnd.csv" download><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a>
-    </li>
-    <ul>
-      <li>Bike share information lists the times and locations for each pickup and dropoff of the Boston Hubway bike share system. With this data it is possible to track how bikes move around the city.</li>
-      <li><a href="https://surv-mqp.carto.com/builder/0db1bf10-825d-45e0-8755-6ebf58608281/embed">Example</a></li>
-    </ul>
-  </ul>
-  <hr>
-
-</body>
-</html>
+    </div>
+  </body>
+  </html>

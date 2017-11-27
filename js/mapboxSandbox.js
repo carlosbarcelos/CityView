@@ -7,6 +7,20 @@ var map = new mapboxgl.Map({
   zoom: 9
 });
 
+// Style selection
+
+  var styleList = document.getElementById('style-menu');
+  var inputs = styleList.getElementsByTagName('input');
+
+  function switchLayer(layer) {
+    var layerId = layer.target.id;
+    map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
+  }
+
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].onclick = switchLayer;
+  }
+
 // layers
 map.on('load', function () {
   // Contours Layer

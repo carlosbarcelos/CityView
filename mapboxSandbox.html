@@ -1,42 +1,83 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <title>Smart Urban Visualization</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A place to test mapbox features.">
+  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+  <title>Mapbox Sandbox</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+
+  <!-- Mapbox integration -->
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css' rel='stylesheet' />
-  <link rel="stylesheet" type="text/css" href="css/mapbox.css">
+  <link href="css/mapbox.css" rel="stylesheet">
 </head>
+
 <body>
-  <header class= tm-header>
-    <div class="tm-container">
-      <a href="HomePage.html">
-        <img src="Images/SURV_logo2.png" alt="logo" width="120" class="surv-logo">
-        <a href="https://www.wpi.edu">
-          <img src="Images/WPI_logo.png" alt="WPI logo" width="120" class="wpi-logo">
-          <a href="https://www.nsf.gov">
-            <img src="Images/nsf_logo.jpg" alt="NSF logo" width="120" class="nsf-logo">
-            <nav class ="tm-nav">
-              <ul>
-                <li><a href="HomePage.html">Home</a></li>
-                <li><a href="AboutPage.html">About</a></li>
-                <li class="dropdown">
-                  <a href="javascript:void(0)" class="dropbtn">Research + Projects</a>
-                  <div class="dropdown-content">
-                    <!-- <a href="#">Link 1</a> -->
-                    <a href="mapboxSandbox.html">Data Animation</a>
-                    <a href="3DheatmapPage.html">3D Visualization</a>
-                    <a href="3DhmTimePage.html">3D Visual Interaction</a>
-                    <a href="Google_heatmapPage.html">Data Upload Example</a>
-                  </div>
-                </li>
-                <li><a href="TeamPage.html">Contact Our Team</a></li>
-              </ul>
-            </nav>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="javascript:void(0)">
+      <img src="Images/SURV_logo2.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      SURV
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dataInformation.html">Data Information</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Examples</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="datasets/spatial-static_temporal-static.html">Spatially Static & Temporally Static</a>
+            <a class="dropdown-item" href="datasets/spatial-static_temporal-dynamic.html">Spatially Static & Temporally Dynamic</a>
+            <a class="dropdown-item" href="datasets/spatial-dynamic_temporal-dynamic.html">Spatially Dynamic & Temporally Dynamic</a>
           </div>
-        </header>
-        <div id ='map'></div>
-        <nav id="menu"></nav>
-        <script src="js/mapboxSandbox.js"></script>
-      </body>
-      </html>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Insert the Mapbox map -->
+  <div id='map'></div>
+
+<div id="menu">
+  <div id='style-menu'> <!--TODO-->
+    <input id='basic' type='radio' name='rtoggle' value='basic' checked='checked'>
+    <label for='basic'>basic</label>
+    <input id='streets' type='radio' name='rtoggle' value='streets'>
+    <label for='streets'>streets</label>
+    <input id='bright' type='radio' name='rtoggle' value='bright'>
+    <label for='bright'>bright</label>
+    <input id='light' type='radio' name='rtoggle' value='light'>
+    <label for='light'>light</label>
+    <input id='dark' type='radio' name='rtoggle' value='dark'>
+    <label for='dark'>dark</label>
+    <input id='satellite' type='radio' name='rtoggle' value='satellite'>
+    <label for='satellite'>satellite</label>
+  </div>
+</div>
+<!-- Javascript for mapbox spatial-static temporal-static -->
+<script src="js/mapboxSandbox.js"></script>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

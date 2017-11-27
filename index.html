@@ -1,62 +1,68 @@
-<!DOCTYPE html>
-<html>
+<!-- The home page
+	-	A short video demonstrating the parts of this project
+	- Links to all other pages on this site
+-->
+
+<!doctype html>
+<html lang="en">
 <head>
-	<meta charset="utf-8"/>
-	<title>Smart Urban Visualization</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/people.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" /> 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-	<link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" />
-	<link rel="stylesheet" media="all" href="https://d2sxfzw9cql5wy.cloudfront.net/assets/v2-prospect-f62c3e8107723d8291b7d8bef73ccc6122ea918e640399c78de2ddc3340abdf5.css" />
-	<link rel="stylesheet" media="print" href="https://d39afr5wio5j08.cloudfront.net/assets/print-5a29a9c455566fcb04f2d8332508e186e7022c91b0d2775f86018f0404780d01.css" />
-    </head>
-<body>                   
-	<header class= tm-header>
-		<div class="tm-container">
-			<a href="index.html">
-			<img src="Images/SURV_logo2.png" alt="logo" width="120" class="surv-logo">
-			<a href="https://www.wpi.edu">
-			<img src="Images/WPI_logo.png" alt="WPI logo" width="120" class="wpi-logo">
-			<a href="https://www.nsf.gov">
-			<img src="Images/nsf_logo.jpg" alt="NSF logo" width="120" class="nsf-logo">
-			<nav class ="tm-nav">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="AboutPage.html">About</a></li>
-					<li class="dropdown">
-						<a href="javascript:void(0)" class="dropbtn">Research + Projects</a>
-    					<div class="dropdown-content">
-      						<!-- <a href="#">Link 1</a> -->
-      						<a href="DataAnimationPage.html">Data Animation</a>
-     						<a href="3DheatmapPage.html">3D Visualization</a>
-     						<a href="3DhmTimePage.html">3D Visual Interaction</a>
-     						<a href="Google_heatmapPage.html">Data Upload Example</a>
-   						</div>
-					</li>
-					<li><a href="TeamPage.html">Contact Our Team</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<!--   Adding a footer
-	<footer class= bm-footer>
-		<div class="bm-container">
-			<a href="https://www.wpi.edu">
-			<img src="WPI_logo.png" alt="WPI logo" width="120" class="wpi-logo">
-		</div>
-	</footer>
-	-->
-	<section class="intro">
-			<video width="100%" height="100%" autoplay="true" muted loop id="bgvid">
-				<source src="Video/Shenzhen_movie_project.mp4" type="video/mp4">
-			</video>
-			<div class="inner">
-				<div class ="content">
-				</div>
-			</div>
-	</section>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="The landing page for the website.">
+  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+  <title>Welcome to SURV MQP</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+	<link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="javascript:void(0)">
+      <img src="Images/SURV_logo2.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      SURV
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dataInformation.html">Data Information</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Examples</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="datasets/spatial-static_temporal-static.html">Spatially Static & Temporally Static</a>
+            <a class="dropdown-item" href="datasets/spatial-static_temporal-dynamic.html">Spatially Static & Temporally Dynamic</a>
+            <a class="dropdown-item" href="datasets/spatial-dynamic_temporal-dynamic.html">Spatially Dynamic & Temporally Dynamic</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- End of navbar, start of content -->
+  <main role="main" class="container-fluid">
+
+    <!-- Informational video overviewing the project -->
+		<code>Informational video overviewing the project</code>
+
+  </main>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

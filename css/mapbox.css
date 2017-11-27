@@ -3,8 +3,8 @@ body {
 }
 
 #map {
-  position:absolute;
-  top:0;
+  position: absolute;
+  top:3rem;
   bottom:0;
   width:100%;
 }
@@ -14,7 +14,7 @@ body {
     background: #fff;
     position: absolute;
     z-index: 1;
-    top: 10px;
+    top: 5rem;
     right: 10px;
     border-radius: 3px;
     width: 120px;

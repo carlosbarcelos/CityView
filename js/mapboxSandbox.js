@@ -7,10 +7,10 @@ var map = new mapboxgl.Map({
   zoom: 9
 });
 
+// Style selection
 
-
-  var layerList = document.getElementById('menu');
-  var inputs = layerList.getElementsByTagName('input');
+  var styleList = document.getElementById('style-menu');
+  var inputs = styleList.getElementsByTagName('input');
 
   function switchLayer(layer) {
     var layerId = layer.target.id;
@@ -20,9 +20,6 @@ var map = new mapboxgl.Map({
   for (var i = 0; i < inputs.length; i++) {
     inputs[i].onclick = switchLayer;
   }
-
-  
-
 
 // layers
 map.on('load', function () {

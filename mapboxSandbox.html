@@ -51,8 +51,10 @@
     </div>
   </nav>
   <!-- Insert the Mapbox map -->
-  <div id ='map'></div>
-  <div id='menu'>
+  <div id='map'></div>
+
+<div id="menu">
+  <div id='style-menu'> <!--TODO-->
     <input id='basic' type='radio' name='rtoggle' value='basic' checked='checked'>
     <label for='basic'>basic</label>
     <input id='streets' type='radio' name='rtoggle' value='streets'>
@@ -66,21 +68,7 @@
     <input id='satellite' type='radio' name='rtoggle' value='satellite'>
     <label for='satellite'>satellite</label>
   </div>
-  <script>
-    var layerList = document.getElementById('menu');
-    var inputs = layerList.getElementsByTagName('input');
-
-    function switchLayer(layer) {
-      var layerId = layer.target.id;
-      map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
-    }
-
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].onclick = switchLayer;
-    }
-
-    </script>
-<nav id="menu"></nav>
+</div>
 <!-- Javascript for mapbox spatial-static temporal-static -->
 <script src="js/mapboxSandbox.js"></script>
 

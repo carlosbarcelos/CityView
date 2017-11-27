@@ -48,9 +48,27 @@ map.on('load', function () {
       'circle-color': 'rgba(102,102,0,.5)'
     }
   });
+  // Hubway Stations layer
+  map.addSource('hubway_stations', {
+    type: 'vector',
+    url: 'mapbox://surv-mqp.793eadbr'
+  });
+  map.addLayer({
+    'id': 'hubway_stations',
+    'type': 'circle',
+    'source': 'hubway_stations',
+    'source-layer': 'Hubway_Stations-cw7igs',
+    'layout': {
+      'visibility': 'visible'
+    },
+    'paint': {
+      'circle-radius': 4,
+      'circle-color': 'rgba(62,105,212,.5)'
+    }
+  });
 })
 
-var toggleableLayerIds = [ 'contours', 'streetlights'];
+var toggleableLayerIds = ['contours', 'streetlights', 'hubway_stations'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
   var id = toggleableLayerIds[i];

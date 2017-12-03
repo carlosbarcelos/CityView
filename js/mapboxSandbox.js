@@ -7,20 +7,6 @@ var map = new mapboxgl.Map({
   zoom: 9
 });
 
-// Style selection
-
-  var styleList = document.getElementById('style-menu');
-  var inputs = styleList.getElementsByTagName('input');
-
-  function switchLayer(layer) {
-    var layerId = layer.target.id;
-    map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
-  }
-
-  for (var i = 0; i < inputs.length; i++) {
-    inputs[i].onclick = switchLayer;
-  }
-
 // layers
 map.on('load', function () {
   // Contours Layer
@@ -187,3 +173,29 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
   var layers = document.getElementById('menu');
   layers.appendChild(link);
 }
+
+//*** Features / Options ***\\
+//Zoom Control
+map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
+//Information controls
+class InformationControl {
+    onAdd(map) {
+        this._map = map;
+        this._container = document.createElement('button');
+        this._container.className = 'mapboxgl-ctrl InformationControl';
+        this._container.title = 'Get information about the significance of this dataset.';
+        this._container.textContent = '?';
+        return this._container;
+    }
+}
+function InformationControlAction() {
+    alert("HELLO WORLD");
+}
+map.addControl(new InformationControl(), 'top-left');
+var informationClass = document.getElementsByClassName("InformationControl");
+var informationControlFunction = function() {
+    alert('This is some information.');
+};
+informationClass[0].addEventListener('click', informationControlFunction, false);
+//Style Control

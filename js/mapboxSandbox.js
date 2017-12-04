@@ -174,6 +174,7 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
   layers.appendChild(link);
 }
 
+
 //*** Features / Options ***\\
 //Zoom Control
 map.addControl(new mapboxgl.NavigationControl(), 'top-left');
@@ -189,13 +190,26 @@ class InformationControl {
         return this._container;
     }
 }
-function InformationControlAction() {
-    alert("HELLO WORLD");
-}
 map.addControl(new InformationControl(), 'top-left');
 var informationClass = document.getElementsByClassName("InformationControl");
 var informationControlFunction = function() {
-    alert('This is some information.');
+    alert('Information Control.');
 };
 informationClass[0].addEventListener('click', informationControlFunction, false);
 //Style Control
+class StyleControl {
+    onAdd(map) {
+        this._map = map;
+        this._container = document.createElement('button');
+        this._container.className = 'mapboxgl-ctrl StyleControl';
+        this._container.title = 'Change the style of the map.';
+        this._container.textContent = 'S';
+        return this._container;
+    }
+}
+map.addControl(new StyleControl(), 'top-left');
+var styleClass = document.getElementsByClassName("StyleControl");
+var styleControlFunction = function() {
+  map.setStyle('mapbox://styles/mapbox/streets-v9');
+};
+styleClass[0].addEventListener('click', styleControlFunction, false);

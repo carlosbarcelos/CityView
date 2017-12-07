@@ -47,3 +47,8 @@ body {
 .contact-button:hover, a:hover {
     opacity: 0.7;
 }
+
+img {
+    max-width: 250px;
+    max-height: 300px;
+}

@@ -211,6 +211,5 @@ map.addControl(new StyleControl(), 'top-left');
 var styleClass = document.getElementsByClassName("StyleControl");
 var styleControlFunction = function() {
   map.setStyle('mapbox://styles/mapbox/streets-v9');
-
 };
 styleClass[0].addEventListener('click', styleControlFunction, false);

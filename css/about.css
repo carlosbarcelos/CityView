@@ -30,6 +30,14 @@ body {
     font-size: 18px;
 }
 
+.contact-button a{
+    color: white;
+}
+
+.contact-button a:hover{
+    text-decoration: none;
+}
+
 .special-links {
     text-decoration: none;
     font-size: 22px;

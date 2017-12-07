@@ -55,7 +55,7 @@ var overlayMaps = {
 var map = L.map('mapid', {
   center: [42.3601, -71.0589],
   zoom: 12,
-  layers: [darkView,streetlightsTile]
+  layers: [streetView,streetlightsTile, contorsTile]
 });
 
 //** Controls **\\

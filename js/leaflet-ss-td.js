@@ -90,7 +90,7 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 // Information button
 var informationContent = `<p>This interaction is comprised of five datasets: recycling schedule over each weekday.</br>
-                          Use the play button to cycle through each day to view how the recycling schedule changes over time.</p>`;
+Use the play button to cycle through each day to view how the recycling schedule changes over time.</p>`;
 var informationPopup = L.popup().setContent(informationContent);
 L.easyButton('fa-info-circle fa-lg', function(btn, map){
   informationPopup.setLatLng(map.getCenter()).openOn(map);
@@ -137,42 +137,32 @@ var t;
 var timer_is_on=0;
 var MAX_COUNT = 4;
 
-// monday_recycleTile
-// tuesday_recycleTile
-// wednesday_recycleTile
-// thursday_recycleTile
-// friday_recycleTile
-
 function timedCount(){
   switch(c){
     case 0: // Monday Recycling
-    monday_recycleTile.removeFrom(map);
-    tuesday_recycleTile.removeFrom(map);
-    wednesday_recycleTile.removeFrom(map);
-    thursday_recycleTile.removeFrom(map);
-    friday_recycleTile.removeFrom(map);
-    monday_recycleTile.addTo(map);
-    console.log('Moday');
+    DoW = 'Moday';
+    monday_recycleTile.setOpacity(0.5);
+    friday_recycleTile.setOpacity(0);
     break;
     case 1: // Tuesday Recycling
-    monday_recycleTile.removeFrom(map);
-    tuesday_recycleTile.addTo(map);
-    console.log('Tuesday');
+    DoW = 'Tuesday';
+    tuesday_recycleTile.setOpacity(0.5);
+    monday_recycleTile.setOpacity(0);
     break;
     case 2: // Wednesday Recycling
-    tuesday_recycleTile.removeFrom(map);
-    wednesday_recycleTile.addTo(map);
-    console.log('Wednesday');
+    DoW = 'Wednesday';
+    wednesday_recycleTile.setOpacity(0.5);
+    tuesday_recycleTile.setOpacity(0);
     break;
     case 3: // Thursday Recycling
-    wednesday_recycleTile.removeFrom(map);
-    thursday_recycleTile.addTo(map);
-    console.log('Thursday');
+    DoW = 'Thursday';
+    thursday_recycleTile.setOpacity(0.5);
+    wednesday_recycleTile.setOpacity(0);
     break;
     case 4: // Friday Recycling
-    thursday_recycleTile.removeFrom(map);
-    friday_recycleTile.addTo(map);
-    console.log('Friday');
+    DoW = 'Friday';
+    friday_recycleTile.setOpacity(0.5);
+    thursday_recycleTile.setOpacity(0);
     break;
   }
   t=setTimeout("timedCount()",1000);
@@ -181,9 +171,22 @@ function timedCount(){
   } else{
     c += 1;
   }
+  console.log(DoW);
 }
 
 function doTimer(){
+  // Reduce Visibility
+  monday_recycleTile.setOpacity(0);
+  tuesday_recycleTile.setOpacity(0);
+  wednesday_recycleTile.setOpacity(0);
+  thursday_recycleTile.setOpacity(0);
+  friday_recycleTile.setOpacity(0);
+  // Preload to map
+  monday_recycleTile.addTo(map);
+  tuesday_recycleTile.addTo(map);
+  wednesday_recycleTile.addTo(map);
+  thursday_recycleTile.addTo(map);
+  friday_recycleTile.addTo(map);
   if (!timer_is_on){
     timer_is_on=1;
     timedCount();
@@ -193,8 +196,20 @@ function doTimer(){
 function stopCount(){
   clearTimeout(t);
   timer_is_on=0;
+  // Reset opacity
+  monday_recycleTile.setOpacity(0.5);
+  tuesday_recycleTile.setOpacity(0.5);
+  wednesday_recycleTile.setOpacity(0.5);
+  thursday_recycleTile.setOpacity(0.5);
+  friday_recycleTile.setOpacity(0.5);
+  // Remove from map
+  monday_recycleTile.removeFrom(map);
+  tuesday_recycleTile.removeFrom(map);
+  wednesday_recycleTile.removeFrom(map);
+  thursday_recycleTile.removeFrom(map);
+  friday_recycleTile.removeFrom(map);
 }
 
 function resetCount(){
-  c=0
+  c=0;
 }

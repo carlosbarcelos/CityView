@@ -43,17 +43,28 @@
           <a class="nav-link" href="../about.html">About</a>
         </li>
       </ul>
+      <div class="btn-group" data-toggle="buttons" id="button_options">
+        <label class="btn btn-primary btn-sm">
+          <input type="radio" name="option" id="pickup" autocomplete="off"> Pickup
+        </label>
+        <label class="btn btn-primary btn-sm">
+          <input type="radio" name="option" id="dropoff" autocomplete="off"> Dropoff
+        </label>
+        <label class="btn btn-primary btn-sm active">
+          <input type="radio" name="option" id="pickup_dropoff" autocomplete="off" checked> Pickup/Dropoff
+        </label>
+      </div>
     </div>
   </nav>
   <!-- Insert the Mapbox map -->
-  <iframe width="100%" height="100%" style="position:absolute;" frameborder="0" src="https://surv-mqp.carto.com/builder/de212310-b737-440f-853a-6bdefd0506eb/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+  <iframe id="carto_map" width="100%" height="100%" style="position:absolute;" frameborder="0" src="https://surv-mqp.carto.com/builder/de212310-b737-440f-853a-6bdefd0506eb/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
   <script src="../js/popper.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/carto-sd-td.js"></script>
 </body>
 </html>

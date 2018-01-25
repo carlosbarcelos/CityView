@@ -81,7 +81,7 @@ var overlayMaps = {
 var map = L.map('mapid', {
   center: [42.3601, -71.0589],
   zoom: 12,
-  layers: [streetView,monday_recycleTile]
+  layers: [lightView,monday_recycleTile]
 });
 
 //** Controls **\\

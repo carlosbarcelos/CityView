@@ -15,7 +15,8 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="css/about.css" rel="stylesheet">
+  <!-- Many style decisions made based on https://mdbootstrap.com/sections/team-sections/-->
+  <link href="css/team.css" rel="stylesheet">
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -54,45 +55,151 @@
     </div>
   </nav>
   <!-- End of navbar, start of content -->
-  <main role="main" class="container-fluid">
+  <main role="main" class="container">
 
-    <!-- Authors / Advisor Cards -->
-    <div class="container-fluid">
-      <div class="card">
-        <img src="./Images/carlos_pic.jpg" alt="Carlos Barcelos" style="width:100%">
-        <h1>Carlos Barcelos</h1>
-        <p class="title">Computer Science, Class of 2018</p>
-        <p>Worcester Polytechnic Institute</p>
-        <a class="special-links" href="https://www.linkedin.com/in/carlosbarcelos/" target="blank"><i class="fa fa-linkedin"></i></a>
-        <p><a href="mailto:cabarcelos@wpi.edu"><button class="contact-button">Contact</button></a></p>
-      </div>
-      <div class="card">
-        <img src="./Images/justin_pic.jpg" alt="Justin Myerson" style="width:100%">
-        <h1>Justin Myerson</h1>
-        <p class="title">Computer Science, Class of 2018</p>
-        <p>Worcester Polytechnic Institute</p>
-        <a class="special-links" href="https://www.linkedin.com/in/justin-myerson-79587911a/" target="_blank"><i class="fa fa-linkedin"></i></a>
-        <p><a href="mailto:jamyerson@wpi.edu"><button class="contact-button">Contact</button></a></p>
-      </div>
-      <div class="card">
-        <img src="./Images/li_pic.jpg" alt="Yanhua Li" style="width:100%">
-        <h1>Yanhua Li, Ph.D.</h1>
-        <p class="title">Assistant Professor, Computer Science & Data Science</p>
-        <p>Worcester Polytechnic Institute</p>
-        <a class="special-links" href="http://users.wpi.edu/~yli15/" target="_blank"><i class="fa fa-user"></i></a>
-        <a class="special-links" href="https://www.linkedin.com/in/yanhua-li-b16a7251/"><i class="fa fa-linkedin"></i></a>
-        <p><a href="mailto:yli15@wpi.edu"><button class="contact-button">Contact</button></a></p>
-      </div>
-      <div class="card">
-        <img src="./Images/kong_pic.jpg" alt="Xiangnan Kong" style="width:100%">
-        <h1>Xiangnan Kong, Ph.D.</h1>
-        <p class="title">Assistant Professor, Computer Science</p>
-        <p>Worcester Polytechnic Institute</p>
-        <a class="special-links" href="https://web.cs.wpi.edu/~xkong/" target="_blank"><i class="fa fa-user"></i></a>
-        <p><a href="mailto:xkong@wpi.edu"><button class="contact-button">Contact</button></a></p>
-      </div>
-    </div>
-  </main>
+    <!-- Team Section-->
+     <section class="section team-section pb-4">
+            <h2 class="h1 text-center py-5">The SURV MQP Team</h2>
+
+            <p class="section-description">Two Computer Science students from Worcester Polytechnic Institute worked with </br>two advisors, from the same university,
+            to plan and execute this project.</p>
+
+            <!--Grid row-->
+            <div class="row mb-lg-4 center-on-small-only">
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-r">
+                    <div class="col-md-6 float-left">
+                        <div class="avatar">
+                            <img src="./Images/carlos_pic.jpg" class="rounded z-depth-1" alt="Carlos Barcelos">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 float-right">
+                        <h4>
+                            <strong>Carlos Barcelos</strong>
+                        </h4>
+                        <h6 class="font-bold grey-text mb-4">Student</h6>
+                        <p class="grey-text text-center">Computer Science, Class of 2018 Worcester Polytechnic Institute</p>
+
+                        <!--LinkedIn-->
+                        <a class="icons-sm li-ic" href="https://www.linkedin.com/in/carlosbarcelos/" target="blank">
+                            <i class="fa fa-linkedin"> </i>
+                        </a>
+                        <!--Email-->
+                        <a class="icons-sm email-ic" href="mailto:cabarcelos@wpi.edu">
+                            <i class="fa fa-envelope"> </i>
+                        </a>
+                        <!--GitHub-->
+                        <a class="icons-sm git-ic" href="https://github.com/carlosbarcelos">
+                            <i class="fa fa-github"> </i>
+                        </a>
+                    </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-r">
+
+                    <div class="col-md-6 float-left">
+                        <div class="avatar">
+                            <img src="./Images/li_pic.jpg" class="rounded z-depth-1" alt="Yanhua Li" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 float-right">
+                        <h4>
+                            <strong>Yanhua Li, Ph.D.</strong>
+                        </h4>
+                        <h6 class="font-bold grey-text mb-4">Advisor</h6>
+                        <p class="grey-text text-center">Assistant Professor, Computer Science & Data Science Worcester Polytechnic Institute</p>
+
+                        <!--LinkedIn-->
+                        <a class="icons-sm li-ic" href="https://www.linkedin.com/in/yanhua-li-b16a7251/" target="blank">
+                            <i class="fa fa-linkedin"> </i>
+                        </a>
+                        <!--Email-->
+                        <a class="icons-sm email-ic" href="mailto:yli15@wpi.edu">
+                            <i class="fa fa-envelope"> </i>
+                        </a>
+                        <!--Website-->
+                        <a class="icons-sm git-ic" href="http://users.wpi.edu/~yli15/" target="_blank">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+            <!--Grid row-->
+            <div class="row center-on-small-only">
+
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-r">
+
+                    <div class="col-md-6 float-left">
+                        <div class="avatar">
+                            <img src="./Images/justin_pic.jpg" class="rounded z-depth-1" alt="Justin Myerson" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 float-right">
+                        <h4>
+                            <strong>Justin Myerson</strong>
+                        </h4>
+                        <h6 class="font-bold grey-text mb-4">Student</h6>
+                        <p class="grey-text text-center">Computer Science, Class of 2018 Worcester Polytechnic Institute</p>
+
+                        <!--LinkedIn-->
+                        <a class="icons-sm li-ic" href="https://www.linkedin.com/in/justin-myerson-79587911a/" target="blank">
+                            <i class="fa fa-linkedin"> </i>
+                        </a>
+                        <!--Email-->
+                        <a class="icons-sm email-ic" href="mailto:jamyerson@wpi.edu">
+                            <i class="fa fa-envelope"> </i>
+                        </a>
+                        <!--GitHub-->
+                        <a class="icons-sm git-ic" href="https://github.com/justinm1295">
+                            <i class="fa fa-github"> </i>
+                        </a>
+                    </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-r">
+                    <div class="col-md-6 float-left">
+                        <div class="avatar">
+                            <img src="./Images/kong_pic.jpg" class="rounded z-depth-1" alt="Xiangnan Kong" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 float-right">
+                        <h4>
+                            <strong>Xiangnan Kong, Ph.D.</strong>
+                        </h4>
+                        <h6 class="font-bold grey-text mb-4">Advisor</h6>
+                        <p class="grey-text text-center">Assistant Professor, Computer Science Worcester Polytechnic Institute</p>
+
+                        <!--Email-->
+                        <a class="icons-sm email-ic" href="mailto:xkong@wpi.edu">
+                            <i class="fa fa-envelope"> </i>
+                        </a>
+                        <!--Website-->
+                        <a class="icons-sm git-ic" href="https://web.cs.wpi.edu/~xkong/" target="_blank">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </section>
+        <!--Section: Team v.3-->
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->

@@ -1,17 +1,22 @@
+<!-- The team page
+- Information about the authors/advisors
+-->
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="The landing page for the website.">
+  <meta name="description" content="Team page to give information concering the authors and advisors.">
   <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
-  <title>Welcome to SURV MQP</title>
+  <title>The SURV MQP Team</title>
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-	<link href="css/index.css" rel="stylesheet">
+  <link href="css/about.css" rel="stylesheet">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -26,7 +31,7 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.html">Home</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Examples</a>
@@ -43,7 +48,7 @@
           <a class="nav-link" href="about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="team.html">Team</a>
+          <a class="nav-link active" href="#">Team <span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
@@ -51,9 +56,42 @@
   <!-- End of navbar, start of content -->
   <main role="main" class="container-fluid">
 
-    <!-- Informational video overviewing the project -->
-		<code>Informational video overviewing the project</code>
-
+    <!-- Authors / Advisor Cards -->
+    <div class="container-fluid">
+      <div class="card">
+        <img src="./Images/carlos_pic.jpg" alt="Carlos Barcelos" style="width:100%">
+        <h1>Carlos Barcelos</h1>
+        <p class="title">Computer Science, Class of 2018</p>
+        <p>Worcester Polytechnic Institute</p>
+        <a class="special-links" href="https://www.linkedin.com/in/carlosbarcelos/" target="blank"><i class="fa fa-linkedin"></i></a>
+        <p><a href="mailto:cabarcelos@wpi.edu"><button class="contact-button">Contact</button></a></p>
+      </div>
+      <div class="card">
+        <img src="./Images/justin_pic.jpg" alt="Justin Myerson" style="width:100%">
+        <h1>Justin Myerson</h1>
+        <p class="title">Computer Science, Class of 2018</p>
+        <p>Worcester Polytechnic Institute</p>
+        <a class="special-links" href="https://www.linkedin.com/in/justin-myerson-79587911a/" target="_blank"><i class="fa fa-linkedin"></i></a>
+        <p><a href="mailto:jamyerson@wpi.edu"><button class="contact-button">Contact</button></a></p>
+      </div>
+      <div class="card">
+        <img src="./Images/li_pic.jpg" alt="Yanhua Li" style="width:100%">
+        <h1>Yanhua Li, Ph.D.</h1>
+        <p class="title">Assistant Professor, Computer Science & Data Science</p>
+        <p>Worcester Polytechnic Institute</p>
+        <a class="special-links" href="http://users.wpi.edu/~yli15/" target="_blank"><i class="fa fa-user"></i></a>
+        <a class="special-links" href="https://www.linkedin.com/in/yanhua-li-b16a7251/"><i class="fa fa-linkedin"></i></a>
+        <p><a href="mailto:yli15@wpi.edu"><button class="contact-button">Contact</button></a></p>
+      </div>
+      <div class="card">
+        <img src="./Images/kong_pic.jpg" alt="Xiangnan Kong" style="width:100%">
+        <h1>Xiangnan Kong, Ph.D.</h1>
+        <p class="title">Assistant Professor, Computer Science</p>
+        <p>Worcester Polytechnic Institute</p>
+        <a class="special-links" href="https://web.cs.wpi.edu/~xkong/" target="_blank"><i class="fa fa-user"></i></a>
+        <p><a href="mailto:xkong@wpi.edu"><button class="contact-button">Contact</button></a></p>
+      </div>
+    </div>
   </main>
   <!-- Bootstrap core JavaScript
   ================================================== -->

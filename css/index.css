@@ -2,3 +2,32 @@
 body {
   padding-top: 3rem;
 }
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* */
+.grey-text {
+    color: #9e9e9e !important;
+}
+
+.section.home-section .grey-text {
+    color: #6e6e6e !important;
+}
+
+.py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+.text-center {
+    text-align: center !important;
+}
+.section-description {
+    color: #757575;
+    margin-bottom: 4rem;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+}

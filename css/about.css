@@ -64,6 +64,14 @@ body {
   padding: 3rem;
 }
 
+.inner-workings .container {
+  margin: 3rem;
+}
+
+.center-center {
+text-align: center;
+}
+
 img.square {
   object-fit: cover;
   width:230px;

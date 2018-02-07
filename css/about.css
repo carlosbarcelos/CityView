@@ -10,7 +10,7 @@ body {
 /* Header */
 .info-header {
   position: relative;
-  background: url(../Images/data-background.png) no-repeat center center;
+  background: url(../Images/dark-map.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -20,53 +20,34 @@ body {
   background-clip: content-box;
 }
 
-.fa-info {
+#header-content {
+  background: rgba(76, 76, 76, 0.6);
+  border-radius: 15px;
   color: white;
 }
 
-#header-content {
-  color: white;
+#header-image {
+  display: block;
+  border-radius: 15px;
+  margin: 0 auto;
 }
 
 /* Information Overflow */
 .more-info {
-  padding: 3rem;
+  padding: 5rem;
   font-size: 1.25rem;
   font-weight: 300;
 }
 
-/* Data Examples Nav Tabs*/
-.data-examples .nav-link {
-  color: black;
-  font-size: 1.05rem;
-  font-style: italic;
-}
-
-.data-examples .nav-link.active {
-  font-weight: bold;
-  font-style: normal;
-}
-
-.data-examples .nav-link:hover {
-  color: #3d3b3b;
-  background-color: #c8cbce;
-}
-/* Data Examples Nav Tabs Content*/
-.data-examples {
+/* Site Features */
+.site-features {
   padding: 3rem;
-}
-.tab-content p {
-  padding: 1rem;
-  font-size: 1.15rem;
-  font-weight: 300;
+  background-color: #e0e0e0;
 }
 
-img.square {
-  object-fit: cover;
-  width:230px;
-  height:230px;
-  display: block;
-  margin: 0 auto;
+/* Inner Workings */
+.inner-workings {
+
 }
 
 /* Modal Image */

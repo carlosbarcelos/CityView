@@ -11,7 +11,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="css/dataInformation.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -48,122 +49,203 @@
       </ul>
     </div>
   </nav>
-  <!-- End of navbar, start of content -->
-  <main role="main" class="container-fluid">
-    <!-- Information about the data types -->
-    <div class="container-fluid">
-      <h1>On Spatial-Temporal Datasets</h1>
-      <p>Urban data can be categorized into three combinations of spatial-temporal
-        data. Spatial refers to the location of the data point, generally defined
-        by an ordered pair: (latitude, longitude). Temporal refers to the time at
-        which the data point was collected, often in the form: <em>yyyy-mm-ddThh:mm:ss</em>
-      </p>
-      <p>
-        For the purposes of these visualizations, please refer to the following terminology:
-        </br>
-        &emsp; Spatially-Static and Temporally-Static Data <i class="fa fa-arrow-right" aria-hidden="true"></i> Static Data
-        </br>
-        &emsp; Spatially-Static and Temporally-Dynamic Data <i class="fa fa-arrow-right" aria-hidden="true"></i> Time Series Data
-        </br>
-        &emsp; Spatially-Dynamic and Temporally-Dynamic Data <i class="fa fa-arrow-right" aria-hidden="true"></i> Dynamic Data
-      </p>
-      <p>Please note that datasets with the combination of spatially-dynamic and
-        temporally-static are impossible to collect, as this type of data implies
-        instantaneous change, which is not feasible for physical data sets.
-      </p>
-      <p>These are the data sets we used and information about them.</p>
-      <hr>
-    </div>
-
-    <!-- Details about the data types -->
-    <div class="grid">
-      <!--Top-Left-->
-      <div class="col-md-6 bg-secondary">
-        <h1>Static Data
-          <a href="datasets/spatial-static_temporal-static.html"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-        </h1>
-        <p>This type of data refers to fixed points in space. When applied to a map they
-          reveal information about geographical distribution of some dataset. It can be
-          described as both spatially-static and temporally-static.
-        </p>
-        <p>These are the static data sets we used and some information describing the datasets.</p>
-        <ul>
-          <li>Streetlight Locations
-            <a href="datasets/spatial-static_temporal-static/streetlight-locations.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-          </li>
-          <ul>
-            <li>Boston provides information on the street lights in the city.</li>
-          </ul>
-          <li>Hubway Bike Share Rack Locations
-            <a href="datasets/spatial-static_temporal-static/Hubway_Stations.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-          </li>
-          <ul>
-            <li>Boston provides information on the locations of their Hubway Bike Share bike rack locations.</li>
-          </ul>
-        </ul>
-      </div>
-      <!--Top-Right-->
-      <div class="col-md-6 bg-secondary">
-        <h1>Time Series Data
-          <a href="datasets/spatial-static_temporal-dynamic.html"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-        </h1>
-        <p>This type of data shows the change in a particular location over time. This
-          can refer to the change of a number of catagories of data, often relating to
-          the collection or redistribution of some entity at a location. It can be
-          described as spatially-static and temporally-dynamic.
-        </p>
-        <p>These are the time series data sets we used and some information describing the datasets.</p>
-        <ul>
-          <li>Recycling Schedule
-            <a href="datasets/spatial-static_temporal-dynamic/trash-schedules-by-address.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-          </li>
-          <ul>
-            <li>Recycling pickup occurs in specific locations in the city on a timely basis. Trash pickup can be used to observe traffic patterns and determine bottlenecks.</li>
-            <li>Recycling Schedule - <em>Monday</em>
-              <a href="datasets/spatial-static_temporal-dynamic/RecyclingMonday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-            </li>
-            <li>Recycling Schedule - <em>Tuesday</em>
-              <a href="datasets/spatial-static_temporal-dynamic/RecyclingTuesday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-            </li>
-            <li>Recycling Schedule - <em>Wednesday</em>
-              <a href="datasets/spatial-static_temporal-dynamic/RecyclingWednesday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-            </li>
-            <li>Recycling Schedule - <em>Thursday</em>
-              <a href="datasets/spatial-static_temporal-dynamic/RecyclingThursday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-            </li>
-            <li>Recycling Schedule - <em>Friday</em>
-              <a href="datasets/spatial-static_temporal-dynamic/RecyclingFriday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-            </li>
-          </ul>
-        </ul>
-      </div>
-      <!--Bottom-Right-->
-      <div class="col-md-6 bg-secondary">
-        <h1>Dynamic Data
-          <a href="datasets/spatial-dynamic_temporal-dynamic.html"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-        </h1>
-        <p>This type of data shows how an object moves over time. By linking together
-          many datapoints for a single object with unique time and location values, it
-          possible to view change over time. The most appropraite analogy for this behavior
-          is how an object travels. It can be described as both spatially-dyanamic and temporally-dyanamic.</p>
-          <p>These are the dynamic data sets we used and some information describing the datasets.</p>
-          <ul>
-            <li>NYC Green Taxi Pickup/Dropoff - <em>One Week</em>
-              <a href="datasets/spatial-dynamic_temporal-dynamic/green_tripdata_2015-01-One Week.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-              <ul>
-                <li>NYC Green Taxis provide pickup/dropoff informaiton. This dynamic dataset can be used to create a time-interactive map of the taxis around the city.</li>
-              </ul>
-            </li>
-          </ul>
+  <!-- Information header with image -->
+  <header class="info-header">
+    <div class="container">
+      <div class="row">
+        <!-- Image -->
+        <div class="col-3">
+          <i class="fas fa-info fa-10x"></i>
+        </div>
+        <!-- Conent -->
+        <div id="header-content" class="col-9">
+          <h2>Lorem Ipsum</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nam vulputate vel nisi cursus ultrices. Quisque lobortis tortor ligula, ac varius lorem placerat ut.
+          </p>
         </div>
       </div>
-    </main>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-  </html>
+    </div>
+  </header>
+  <!-- Information Overflow -->
+  <div class="container-fluid">
+    <div class="more-info">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate vel nisi cursus ultrices.
+        Quisque lobortis tortor ligula, ac varius lorem placerat ut. Sed in dolor tincidunt, posuere nulla et,
+        maximus lectus. Aliquam tempus vehicula tempor. Etiam faucibus nunc vel metus euismod congue et ornare tellus.
+        Aliquam dignissim mi et mauris imperdiet interdum. Nulla egestas, nisl quis cursus scelerisque,
+        ipsum massa vulputate tortor, id vestibulum felis elit et risus. Aliquam laoreet, tellus ac dignissim ultrices,
+        erat risus feugiat sem, nec ornare nisl magna quis arcu. Mauris iaculis imperdiet pellentesque.
+        Mauris elementum purus id turpis placerat, ac euismod tellus dapibus.
+      </p>
+    </div>
+    <!-- Data Examples Nav Tabs -->
+    <div class="data-examples">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item" >
+          <a class="nav-link active" data-toggle="tab" href="#static" role="tab">Static Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#timeseries" role="tab">Time Series Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#dynamic" role="tab">Dynamic Data</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- Static Data Pane -->
+        <div id="static" class="tab-pane active" role="tabpanel">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate vel nisi cursus ultrices. Quisque lobortis tortor
+            ligula, ac varius lorem placerat ut. Sed in dolor tincidunt, posuere nulla et, maximus lectus. Aliquam tempus vehicula tempor.
+            Etiam faucibus nunc vel metus euismod congue et ornare tellus. Aliquam dignissim mi et mauris imperdiet interdum. Nulla egestas,
+            nisl quis cursus scelerisque, ipsum massa vulputate tortor, id vestibulum felis elit et risus. Aliquam laoreet, tellus ac
+            dignissim ultrices, erat risus feugiat sem, nec ornare nisl magna quis arcu. Mauris iaculis imperdiet pellentesque.
+            Mauris elementum purus id turpis placerat, ac euismod tellus dapibus.
+          </p>
+        </br>
+        <p>
+          Vestibulum blandit, augue vitae ultrices dapibus, justo dolor rutrum tellus, sed iaculis lacus erat vel ipsum. Nullam placerat
+          ultrices libero eu eleifend. Nam non mi posuere, tempor purus ut, volutpat nisi. Fusce tincidunt consectetur eros, ac convallis
+          elit aliquam sit amet. Nullam dignissim sit amet purus varius maximus. Sed eget lorem ante. Proin risus ipsum, hendrerit ut
+          convallis quis, pulvinar non eros. Quisque blandit sapien neque, eget ullamcorper leo venenatis vel. In congue nunc ultrices
+          facilisis finibus. In eget lorem accumsan, vestibulum mauris sed, efficitur purus. Proin rutrum tellus in felis dictum aliquam.
+          Nunc molestie at urna a porta. Morbi sit amet erat in lorem eleifend vulputate. Donec gravida gravida ligula, ut blandit erat fringilla id.
+          Aliquam maximus condimentum eros nec tincidunt. Curabitur aliquet malesuada pharetra.
+        </p>
+      </div>
+      <!-- Time Series Data Pane -->
+      <div id="timeseries" class="tab-pane" role="tabpanel">
+
+      </div>
+      <!-- Dynamic Data Pane -->
+      <div id="dynamic" class="tab-pane" role="tabpanel">
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+<!--
+<div class="container-fluid">
+<h1>On Spatial-Temporal Datasets</h1>
+<p>Urban data can be categorized into three combinations of spatial-temporal
+data. Spatial refers to the location of the data point, generally defined
+by an ordered pair: (latitude, longitude). Temporal refers to the time at
+which the data point was collected, often in the form: <em>yyyy-mm-ddThh:mm:ss</em>
+</p>
+<p>
+For the purposes of these visualizations, please refer to the following terminology:
+</br>
+&emsp; Spatially-Static and Temporally-Static Data <i class="fa fa-arrow-right" aria-hidden="true"></i> Static Data
+</br>
+&emsp; Spatially-Static and Temporally-Dynamic Data <i class="fa fa-arrow-right" aria-hidden="true"></i> Time Series Data
+</br>
+&emsp; Spatially-Dynamic and Temporally-Dynamic Data <i class="fa fa-arrow-right" aria-hidden="true"></i> Dynamic Data
+</p>
+<p>Please note that datasets with the combination of spatially-dynamic and
+temporally-static are impossible to collect, as this type of data implies
+instantaneous change, which is not feasible for physical data sets.
+</p>
+<p>These are the data sets we used and information about them.</p>
+<hr>
+</div>
+
+<! Details about the data types
+<div class="grid">
+<!Top-Left
+<div class="col-md-6 bg-secondary">
+<h1>Static Data
+<a href="datasets/spatial-static_temporal-static.html"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+</h1>
+<p>This type of data refers to fixed points in space. When applied to a map they
+reveal information about geographical distribution of some dataset. It can be
+described as both spatially-static and temporally-static.
+</p>
+<p>These are the static data sets we used and some information describing the datasets.</p>
+<ul>
+<li>Streetlight Locations
+<a href="datasets/spatial-static_temporal-static/streetlight-locations.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+</li>
+<ul>
+<li>Boston provides information on the street lights in the city.</li>
+</ul>
+<li>Hubway Bike Share Rack Locations
+<a href="datasets/spatial-static_temporal-static/Hubway_Stations.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+</li>
+<ul>
+<li>Boston provides information on the locations of their Hubway Bike Share bike rack locations.</li>
+</ul>
+</ul>
+</div>
+<!Top-Right
+<div class="col-md-6 bg-secondary">
+<h1>Time Series Data
+<a href="datasets/spatial-static_temporal-dynamic.html"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+</h1>
+<p>This type of data shows the change in a particular location over time. This
+can refer to the change of a number of catagories of data, often relating to
+the collection or redistribution of some entity at a location. It can be
+described as spatially-static and temporally-dynamic.
+</p>
+<p>These are the time series data sets we used and some information describing the datasets.</p>
+<ul>
+<li>Recycling Schedule
+<a href="datasets/spatial-static_temporal-dynamic/trash-schedules-by-address.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+</li>
+<ul>
+<li>Recycling pickup occurs in specific locations in the city on a timely basis. Trash pickup can be used to observe traffic patterns and determine bottlenecks.</li>
+<li>Recycling Schedule - <em>Monday</em>
+<a href="datasets/spatial-static_temporal-dynamic/RecyclingMonday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+</li>
+<li>Recycling Schedule - <em>Tuesday</em>
+<a href="datasets/spatial-static_temporal-dynamic/RecyclingTuesday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+</li>
+<li>Recycling Schedule - <em>Wednesday</em>
+<a href="datasets/spatial-static_temporal-dynamic/RecyclingWednesday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+</li>
+<li>Recycling Schedule - <em>Thursday</em>
+<a href="datasets/spatial-static_temporal-dynamic/RecyclingThursday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+</li>
+<li>Recycling Schedule - <em>Friday</em>
+<a href="datasets/spatial-static_temporal-dynamic/RecyclingFriday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+</li>
+</ul>
+</ul>
+</div>
+<!Bottom-Right
+<div class="col-md-6 bg-secondary">
+<h1>Dynamic Data
+<a href="datasets/spatial-dynamic_temporal-dynamic.html"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+</h1>
+<p>This type of data shows how an object moves over time. By linking together
+many datapoints for a single object with unique time and location values, it
+possible to view change over time. The most appropraite analogy for this behavior
+is how an object travels. It can be described as both spatially-dyanamic and temporally-dyanamic.</p>
+<p>These are the dynamic data sets we used and some information describing the datasets.</p>
+<ul>
+<li>NYC Green Taxi Pickup/Dropoff - <em>One Week</em>
+<a href="datasets/spatial-dynamic_temporal-dynamic/green_tripdata_2015-01-One Week.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+<ul>
+<li>NYC Green Taxis provide pickup/dropoff informaiton. This dynamic dataset can be used to create a time-interactive map of the taxis around the city.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+-->

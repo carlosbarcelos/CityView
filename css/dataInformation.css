@@ -1,8 +1,45 @@
 /* Basic Formatting */
 body {
-  padding-top: 5rem;
+  padding-top: 3.5rem;
 }
 
-.grid {
-	color: white;
+p {
+
+}
+
+/* Header */
+.info-header {
+  position: relative;
+  background: url(../Images/data-background.png) no-repeat center center;
+  background-size: cover;
+}
+
+.info-header .container{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-clip: content-box;
+}
+
+.fa-info {
+  color: white;
+}
+
+#header-content {
+  color: white;
+}
+
+/* Information Overflow */
+.more-info {
+  padding: 3rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* Data Examples Nav Tabs*/
+.data-examples {
+  padding: 3rem;
+}
+.tab-content p {
+  font-size: 1.15rem;
+  font-weight: 300;
 }

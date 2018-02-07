@@ -1,54 +1,151 @@
 /* Basic Formatting */
 body {
-  padding-top: 3rem;
+  padding-top: 3.5rem;
 }
 
-/* User cards */
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    display: inline-block;
+.row {
+  margin-bottom: 1rem;
 }
 
-.title {
-    color: grey;
-    font-size: 18px;
+/* Header */
+.info-header {
+  position: relative;
+  background: url(../Images/data-background.png) no-repeat center center;
+  background-size: cover;
 }
 
-.contact-button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
+.info-header .container{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-clip: content-box;
 }
 
-.contact-button a{
-    color: white;
+.fa-info {
+  color: white;
 }
 
-.contact-button a:hover{
-    text-decoration: none;
+#header-content {
+  color: white;
 }
 
-.special-links {
-    text-decoration: none;
-    font-size: 22px;
-    color: black;
+/* Information Overflow */
+.more-info {
+  padding: 3rem;
+  font-size: 1.25rem;
+  font-weight: 300;
 }
 
-.contact-button:hover, a:hover {
-    opacity: 0.7;
+/* Data Examples Nav Tabs*/
+.data-examples .nav-link {
+  color: black;
+  font-size: 1.05rem;
+  font-style: italic;
 }
 
-img {
-    max-width: 250px;
-    max-height: 300px;
+.data-examples .nav-link.active {
+  font-weight: bold;
+  font-style: normal;
+}
+
+.data-examples .nav-link:hover {
+  color: #3d3b3b;
+  background-color: #c8cbce;
+}
+/* Data Examples Nav Tabs Content*/
+.data-examples {
+  padding: 3rem;
+}
+.tab-content p {
+  padding: 1rem;
+  font-size: 1.15rem;
+  font-weight: 300;
+}
+
+img.square {
+  object-fit: cover;
+  width:230px;
+  height:230px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Modal Image */
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+   border-radius: 5px;
+   cursor: pointer;
+   transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   padding-top: 100px; /* Location of the box */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgb(0,0,0); /* Fallback color */
+   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+   margin: auto;
+   display: block;
+   width: 80%;
+   max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+   margin: auto;
+   display: block;
+   width: 80%;
+   max-width: 700px;
+   text-align: center;
+   color: #ccc;
+   padding: 10px 0;
+   height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+   animation-name: zoom;
+   animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+   from {transform:scale(0)}
+   to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+   position: absolute;
+   top: 15px;
+   right: 35px;
+   color: #f1f1f1;
+   font-size: 40px;
+   font-weight: bold;
+   transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+   color: #bbb;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+   .modal-content {
+       width: 100%;
+   }
 }

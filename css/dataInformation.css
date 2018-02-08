@@ -30,7 +30,7 @@ body {
 
 /* Information Overflow */
 .more-info {
-  padding: 3rem;
+  padding: 3rem 3rem 0rem 3rem;
   font-size: 1.25rem;
   font-weight: 300;
 }
@@ -53,16 +53,19 @@ body {
 }
 /* Data Examples Nav Tabs Content*/
 .data-examples {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
   padding: 3rem;
 }
-.tab-content p {
-  padding: 1rem;
+
+.tab-content {
+  padding: 2rem;
   font-size: 1.15rem;
   font-weight: 300;
 }
 
 img.square {
-  object-fit: cover;
+  object-fit: contain;
   width:230px;
   height:230px;
   display: block;
@@ -71,13 +74,13 @@ img.square {
 
 /* Modal Image */
 /* Style the Image Used to Trigger the Modal */
-#myImg {
+.myImg {
    border-radius: 5px;
    cursor: pointer;
    transition: 0.3s;
 }
 
-#myImg:hover {opacity: 0.7;}
+.myImg:hover {opacity: 0.7;}
 
 /* The Modal (background) */
 .modal {
@@ -103,7 +106,7 @@ img.square {
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
-#caption {
+.caption {
    margin: auto;
    display: block;
    width: 80%;
@@ -115,7 +118,7 @@ img.square {
 }
 
 /* Add Animation - Zoom in the Modal */
-.modal-content, #caption {
+.modal-content, .caption {
    animation-name: zoom;
    animation-duration: 0.6s;
 }

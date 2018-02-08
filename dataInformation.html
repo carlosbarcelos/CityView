@@ -62,7 +62,8 @@
         <div id="header-content" class="col-9">
           <h2>Data Information</h2>
           <p>
-            Urban data can be categorized into three combinations of spatial-temporal data. Spatial refers to the location of the data point, generally defined by an ordered pair: (latitude, longitude). Temporal refers to the time at which the data point was collected, often in the form: yyyy-mm-ddThh:mm:ss
+            Urban data can be categorized into three combinations of spatial-temporal data.
+            These pairs are generally defined by a geographical location and a datetime.
           </p>
         </div>
       </div>
@@ -72,10 +73,15 @@
   <div class="container-fluid">
     <div class="more-info">
       <p>
+        More specifically, <em>spatial-temporal</em> can be broken down into its two parts.
+        Spatial refers to the location of the data point, generally defined by an ordered pair: (latitude, longitude).
+        Temporal refers to the time at which the data point was collected, often in the form: yyyy-mm-ddThh:mm:ss.
+      </p>
+      <p>
         For the purposes of these visualizations, please refer to the following terminology: <br>
-        Spatially-Static and Temporally-Static Data &rarr; Static Data <br>
-        Spatially-Static and Temporally-Dynamic Data &rarr; Time Series Data <br>
-        Spatially-Dynamic and Temporally-Dynamic Data &rarr; Dynamic Data <br><br>
+        Spatially-Static and Temporally-Static Data &rarr; Static Data <br>
+        Spatially-Static and Temporally-Dynamic Data &rarr; Time Series Data <br>
+        Spatially-Dynamic and Temporally-Dynamic Data &rarr; Dynamic Data <br><br>
 
         Please note that datasets with the combination of spatially-dynamic and temporally-static are impossible to collect, as this type of data implies instantaneous change, which is not feasible for physical data sets. <br><br>
 
@@ -101,27 +107,31 @@
       <div class="tab-content">
         <!-- Static Data Pane -->
         <div id="static" class="tab-pane active" role="tabpanel">
-              <p>
-                This type of data refers to fixed points in space. When applied to a map they reveal information about geographical distribution of some dataset. It can be described as both spatially-static and temporally-static. <br>
+          <h2>Data Details</h2>
+          <p>
+            This type of data refers to fixed points in space. When applied to a map they reveal information about geographical distribution of some dataset. It can be described as both spatially-static and temporally-static. <br>
 
-                These are the static data sets we used and some information describing the datasets.
-              </p>
-              <ul>
-                  <li>Streetlight Locations
-                    <a href="datasets/spatial-static_temporal-static/streetlight-locations.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-                  </li>
-                <ul>
-                   <li>Boston provides information on the street lights in the city.</li>
-                </ul>
-                  <li>Hubway Bike Share Rack Locations
-                    <a href="datasets/spatial-static_temporal-static/Hubway_Stations.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-                  </li>
-                <ul>
-                  <li>Boston provides information on the locations of their Hubway Bike Share bike rack locations.</li>
-                </ul>
+            These are the static data sets we used and some information describing the datasets.
+          </p>
+          <ul>
+            <li>Streetlight Locations
+              <a href="datasets/spatial-static_temporal-static/streetlight-locations.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+            </li>
+            <ul>
+              <li>Boston provides information on the street lights in the city.</li>
+            </ul>
+            <li>Hubway Bike Share Rack Locations
+              <a href="datasets/spatial-static_temporal-static/Hubway_Stations.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+            </li>
+            <ul>
+              <li>Boston provides information on the locations of their Hubway Bike Share bike rack locations.</li>
+            </ul>
+          </ul>
+          <hr>
+          <h2>Data Story</h2>
           <div class="row">
             <div class="col-4">
-              <img class="square" src=""/>
+              <img class="square myImg" src="Images/CityView_logo.jpg" alt="CityView Logo" onclick="onClick1(this)">
             </div>
             <div class="col-8">
               <p>
@@ -136,49 +146,51 @@
               </p>
             </div>
             <div class="col-4">
-              <!-- Trigger the Modal -->
-              <img class="square" id="myImg" src="Images/WPI_logo.png" alt="WPI Logo">
-              <!-- The Modal -->
-              <div id="myModal" class="modal">
-                <img class="modal-content" id="img01">
-                <div id="caption"></div>
-              </div>
+              <img class="square myImg" src="Images/WPI_logo.png" alt="WPI Logo" onclick="onClick1(this)">
             </div>
+          </div>
+          <!-- The Modal -->
+          <div id="modal01" class="modal" onclick="this.style.display='none'">
+            <img id="img01" class="modal-content">
+            <div class="caption" id="caption01"></div>
           </div>
         </div>
         <!-- Time Series Data Pane -->
         <div id="timeseries" class="tab-pane" role="tabpanel">
-            <p>
-                This type of data shows the change in a particular location over time. This can refer to the change of a number of catagories of data, often relating to the collection or redistribution of some entity at a location. It can be described as spatially-static and temporally-dynamic. <br>
+          <h2>Data Details</h2>
+          <p>
+            This type of data shows the change in a particular location over time. This can refer to the change of a number of catagories of data, often relating to the collection or redistribution of some entity at a location. It can be described as spatially-static and temporally-dynamic. <br>
 
-                These are the time series data sets we used and some information describing the datasets.
-              </p>
-              <ul>
-                <li>Recycling Schedule
-                  <a href="datasets/spatial-static_temporal-dynamic/trash-schedules-by-address.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-                </li>
-                <ul>
-                  <li>Recycling pickup occurs in specific locations in the city on a timely basis. Trash pickup can be used to observe traffic patterns and determine bottlenecks.</li>
-                  <li>Recycling Schedule - <em>Monday</em>
-                    <a href="datasets/spatial-static_temporal-dynamic/RecyclingMonday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-                  </li>
-                  <li>Recycling Schedule - <em>Tuesday</em>
-                    <a href="datasets/spatial-static_temporal-dynamic/RecyclingTuesday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-                  </li>
-                  <li>Recycling Schedule - <em>Wednesday</em>
-                    <a href="datasets/spatial-static_temporal-dynamic/RecyclingWednesday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-                  </li>
-                  <li>Recycling Schedule - <em>Thursday</em>
-                    <a href="datasets/spatial-static_temporal-dynamic/RecyclingThursday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-                  </li>
-                  <li>Recycling Schedule - <em>Friday</em>
-                    <a href="datasets/spatial-static_temporal-dynamic/RecyclingFriday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-                  </li>
-                </ul>
-              </ul>
+            These are the time series data sets we used and some information describing the datasets.
+          </p>
+          <ul>
+            <li>Recycling Schedule
+              <a href="datasets/spatial-static_temporal-dynamic/trash-schedules-by-address.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+            </li>
+            <ul>
+              <li>Recycling pickup occurs in specific locations in the city on a timely basis. Trash pickup can be used to observe traffic patterns and determine bottlenecks.</li>
+              <li>Recycling Schedule - <em>Monday</em>
+                <a href="datasets/spatial-static_temporal-dynamic/RecyclingMonday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+              </li>
+              <li>Recycling Schedule - <em>Tuesday</em>
+                <a href="datasets/spatial-static_temporal-dynamic/RecyclingTuesday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+              </li>
+              <li>Recycling Schedule - <em>Wednesday</em>
+                <a href="datasets/spatial-static_temporal-dynamic/RecyclingWednesday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+              </li>
+              <li>Recycling Schedule - <em>Thursday</em>
+                <a href="datasets/spatial-static_temporal-dynamic/RecyclingThursday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+              </li>
+              <li>Recycling Schedule - <em>Friday</em>
+                <a href="datasets/spatial-static_temporal-dynamic/RecyclingFriday.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
+              </li>
+            </ul>
+          </ul>
+          <hr>
+          <h2>Data Story</h2>
           <div class="row">
             <div class="col-4">
-              <img class="square" src=""/>
+              <img class="square myImg"src="Images/CityView_logo.jpg" alt="CityView Logo" onclick="onClick2(this)">
             </div>
             <div class="col-8">
               <p>
@@ -193,34 +205,36 @@
               </p>
             </div>
             <div class="col-4">
-              <!-- Trigger the Modal -->
-              <img class="square" id="myImg" src="Images/WPI_logo.png" alt="WPI Logo">
-              <!-- The Modal -->
-              <div id="myModal" class="modal">
-                <img class="modal-content" id="img01">
-                <div id="caption"></div>
-              </div>
+              <img class="square myImg"src="Images/WPI_logo.png" alt="WPI Logo" onclick="onClick2(this)">
             </div>
+          </div>
+          <!-- The Modal -->
+          <div id="modal02" class="modal" onclick="this.style.display='none'">
+            <img id="img02" class="modal-content">
+            <div class="caption" id="caption02"></div>
           </div>
         </div>
         <!-- Dynamic Data Pane -->
         <div id="dynamic" class="tab-pane" role="tabpanel">
-            <p>
-                This type of data shows how an object moves over time. By linking together many datapoints for a single object with unique time and location values, it possible to view change over time. The most appropraite analogy for this behavior is how an object travels. It can be described as both spatially-dyanamic and temporally-dyanamic. <br>
+          <h2>Data Details</h2>
+          <p>
+            This type of data shows how an object moves over time. By linking together many datapoints for a single object with unique time and location values, it possible to view change over time. The most appropraite analogy for this behavior is how an object travels. It can be described as both spatially-dyanamic and temporally-dyanamic. <br>
 
-                These are the time series data sets we used and some information describing the datasets.
-              </p>
+            These are the time series data sets we used and some information describing the datasets.
+          </p>
+          <ul>
+            <li>NYC Green Taxi Pickup/Dropoff - <em>One Week</em>
+              <a href="datasets/spatial-dynamic_temporal-dynamic/green_tripdata_2015-01-One Week.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
               <ul>
-                <li>NYC Green Taxi Pickup/Dropoff - <em>One Week</em>
-                  <a href="datasets/spatial-dynamic_temporal-dynamic/green_tripdata_2015-01-One Week.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
-                  <ul>
-                    <li>NYC Green Taxis provide pickup/dropoff informaiton. This dynamic dataset can be used to create a time-interactive map of the taxis around the city.</li>
-                  </ul>
-                </li>
+                <li>NYC Green Taxis provide pickup/dropoff informaiton. This dynamic dataset can be used to create a time-interactive map of the taxis around the city.</li>
               </ul>
+            </li>
+          </ul>
+          <hr>
+          <h2>Data Story</h2>
           <div class="row">
             <div class="col-4">
-              <img class="square" src=""/>
+              <img class="square myImg"src="Images/CityView_logo.jpg" alt="CityView Logo" onclick="onClick3(this)">
             </div>
             <div class="col-8">
               <p>
@@ -235,14 +249,13 @@
               </p>
             </div>
             <div class="col-4">
-              <!-- Trigger the Modal -->
-              <img class="square" id="myImg" src="Images/WPI_logo.png" alt="WPI Logo">
-              <!-- The Modal -->
-              <div id="myModal" class="modal">
-                <img class="modal-content" id="img01">
-                <div id="caption"></div>
-              </div>
+              <img class="square myImg"src="Images/WPI_logo.png" alt="WPI Logo" onclick="onClick3(this)">
             </div>
+          </div>
+          <!-- The Modal -->
+          <div id="modal03" class="modal" onclick="this.style.display='none'">
+            <img id="img03" class="modal-content">
+            <div class="caption" id="caption03"></div>
           </div>
         </div>
       </div>

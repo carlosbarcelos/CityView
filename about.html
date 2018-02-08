@@ -10,6 +10,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Custom styles for this template -->
   <link href="css/about.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,36 +50,135 @@
       </ul>
     </div>
   </nav>
-  <!-- End of navbar, start of content -->
-  <main role="main" class="container-fluid">
 
-    <!-- CityView Information -->
-    <div class="container-fluid">
-      <h1>CityView Information</h1>
-      <p>
-        The CityView system is entirely hosted on a website and runs off of simple HTML and JavaScript. The data visualization is a product of applying CSV files of spatial-temporal data to a map provided by CARTO, MapBox, or Leaflet.
-
-        The purpose of the project is to demonstrate how data visualization can be used for urban development planning in the real-world as a better option than simple data on a page.
-      </p>
+  <!-- Information header with image -->
+  <header class="info-header">
+    <div class="container">
+      <div class="row">
+        <!-- Image -->
+        <div class="col-6 col-md-4">
+          <img id="header-image" src="Images/CityView_logo.jpg" alt="CityView logo">
+        </div>
+        <!-- Conent -->
+        <div id="header-content" class="col-12 col-sm-6 col-md-8">
+          <h1>What is CityView?</h1>
+          <p>
+            Two students created a system for urban data visualization titled CityView.
+            CityView provides data visualization for large datasets of spatial-temporal data points.
+          </p>
+        </div>
+      </div>
     </div>
-
-    <!-- Site Features Information -->
-    <div class="container-fluid">
-      <h1>Site Features Information</h1>
-        <h4>Home Page</h4>
-          <p>The <a href="index.html">home</a> page provides a short video demonstration of the project with some visualization examples.</p>
-
-        <h4>About Page</h4>
-          <p>The <a href="about">about</a> page gives an explanation of both the project as a whole and the layout of the website. In addition, here you can find information about the students working on the project and their advisors.</p>
-
-        <h4>Data Information</h4>
-          <p>The <a href="dataInformation.html">data information</a> page explains the different types of data presented in this project, and provides information about each type for those who may be newer to this field. The data information page also allows any user to download the datasets presented in this project to use for their own interested.</p>
-
-        <h4>Data Examples</h4>
-          <p>Here, a user can interact with the various visualizations created in the project to see what each data type looks like.</p>
+  </header>
+  <!-- Information Overflow -->
+  <div class="more-info">
+    <p>
+      Spatial-temporal data points can be broken down as follows: spatial referring to an objects position in space
+      (i.e. its longitude and latitude) and temporal referring to an objects position in time (i.e. when was the datapoint recorded).
+      This functionality results in the ability to create visualizations as static as streetlights in a city to something
+      as dynamic as a fleet of taxi cabs moving throughout a city.
+    </p>
+    <p>
+      CityView is designed to analyze large sets of urban data. This can be used by an individual
+      doing research or an organization trying to make a decision in an urban environment.
+      The tools provided offer a framework for future experimentation. The core website offers
+      unique visualizations and clear maps in an easy to use and accessible package.
+    </p>
+  </div>
+  <!-- Site Features -->
+  <div class="site-features">
+    <h2>Site Features</h2>
+    <p>
+      CityView allows users to turn data points into dynamic visualizations. With the tools provided,
+      users are able to visualize one or many data sets on a variety of offered maps.
+      The authors provide unique examples of how these tools can be used through data examples.
+      Follow these examples or draw your own conclusions from the features provided.
+    </p>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Static Data</h5>
+          <p class="card-text">
+            The user is able to view up to three datasets concurrently in order to explore a variety of
+            urban data and the interaction between each dataset. View the visualization at large to
+            make general conclusions or zoom in to answer questions about specific neighborhoods.
+          </p>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-6">
+              <a href="datasets/spatial-static_temporal-static.html" class="btn btn-primary">Example</a>
+            </div>
+            <div class="col-6">
+              <a href="#" class="btn btn-primary disabled">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Time Series Data</h5>
+          <p class="card-text">
+            The user is able to view time series data in order to explore how data points travel through a city.
+            View the visualization as individual sets, layered pairs, or as a timed loop of the datasets.
+          </p>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-6">
+              <a href="datasets/spatial-dynamic_temporal-dynamic.html" class="btn btn-primary">Example</a>
+            </div>
+            <div class="col-6">
+              <a href="#" class="btn btn-primary disabled">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Dynamic Data</h5>
+          <p class="card-text">
+            The user is able to view a dataset spanning over space and time. The visualization displays two
+            unique data types within the dataset in their spatial location over time
+            helping the user to explore its living relationship with the city.
+          </p>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-6">
+              <a href="datasets/spatial-dynamic_temporal-dynamic.html" class="btn btn-primary">Example</a>
+            </div>
+            <div class="col-6">
+              <a href="#" class="btn btn-primary disabled">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-  </main>
+  </div>
+  <!-- Inner Workings -->
+  <div class="inner-workings">
+    <h2>Inner Workings</h2>
+    <p>
+      CityView exists as a simple client-side website. Its lightweight design consists entirely of HTML, CSS, and JavaScript files.
+      Because it is so versatile, it works across all platforms - desktop, tablet, and smartphones - and across all operating systems.
+      There are no databases to maintain, no servers to synchronize, and no heavy loads to bear.
+    </p>
+    <p>
+      CityView utilizes the API from Mapbox, Leaflet, and Carto:
+    </p>
+    <div class="row">
+      <div class="col">
+        <a href="https://www.mapbox.com/"><img src="Images/mapboxLogo.png" class="rectangle" alt="Mapbox Logo"></a>
+      </div>
+      <div class="col">
+        <a href="http://leafletjs.com/"><img src="Images/leafletLogo.png" class="rectangle" alt="Leaflet Logo"></a>
+      </div>
+      <div class="col">
+        <a href="https://carto.com/"><img src="Images/cartoLogo.png" class="rectangle" alt="Carto Logo"></a>
+      </div>
+    </div>
+  </div>
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->

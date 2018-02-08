@@ -1,54 +1,82 @@
 /* Basic Formatting */
 body {
-  padding-top: 3rem;
+  padding-top: 3.5rem;
 }
 
-/* User cards */
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    display: inline-block;
+.row {
+  margin-bottom: 1rem;
 }
 
-.title {
-    color: grey;
-    font-size: 18px;
+/* Header */
+.info-header {
+  position: relative;
+  background: url(../Images/dark-map.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
-.contact-button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
+.info-header .container{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-clip: content-box;
 }
 
-.contact-button a{
-    color: white;
+#header-content {
+  background: rgba(76, 76, 76, 0.6);
+  border-radius: 15px;
+  color: white;
 }
 
-.contact-button a:hover{
-    text-decoration: none;
+#header-image {
+  display: block;
+  border-radius: 15px;
+  margin: 0 auto;
 }
 
-.special-links {
-    text-decoration: none;
-    font-size: 22px;
-    color: black;
+/* Information Overflow */
+.more-info {
+  text-align: center;
+  padding: 5rem;
+  font-size: 1.3rem;
+  font-weight: 300;
 }
 
-.contact-button:hover, a:hover {
-    opacity: 0.7;
+/* Site Features */
+.site-features {
+  padding: 3rem;
+  background-color: #e0e0e0;
 }
 
-img {
-    max-width: 250px;
-    max-height: 300px;
+.card-deck {
+  margin-top: 3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.card-footer {
+  text-align: center;
+}
+
+.card-footer .row{
+  margin: 0;
+}
+
+/* Inner Workings */
+.inner-workings {
+  padding: 3rem;
+}
+
+.inner-workings .container {
+  margin: 3rem;
+}
+
+.center-center {
+text-align: center;
+}
+
+img.rectangle {
+  object-fit: contain;
+  width:400px;
+  height:200px;
+  display: block;
+  margin: 0 auto;
 }

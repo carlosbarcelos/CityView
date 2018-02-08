@@ -34,8 +34,9 @@ body {
 
 /* Information Overflow */
 .more-info {
+  text-align: center;
   padding: 5rem;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 300;
 }
 
@@ -72,10 +73,10 @@ body {
 text-align: center;
 }
 
-img.square {
+img.rectangle {
   object-fit: contain;
   width:400px;
-  height:400px;
+  height:200px;
   display: block;
   margin: 0 auto;
 }

@@ -1,8 +1,154 @@
 /* Basic Formatting */
 body {
-  padding-top: 5rem;
+  padding-top: 3.5rem;
 }
 
-.grid {
-	color: white;
+.row {
+  margin-bottom: 1rem;
+}
+
+/* Header */
+.info-header {
+  position: relative;
+  background: url(../Images/data-background.png) no-repeat center center;
+  background-size: cover;
+}
+
+.info-header .container{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-clip: content-box;
+}
+
+.fa-info {
+  color: white;
+}
+
+#header-content {
+  color: white;
+}
+
+/* Information Overflow */
+.more-info {
+  padding: 3rem 3rem 0rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* Data Examples Nav Tabs*/
+.data-examples .nav-link {
+  color: black;
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.data-examples .nav-link.active {
+  font-weight: bold;
+  font-style: normal;
+}
+
+.data-examples .nav-link:hover {
+  color: #3d3b3b;
+  background-color: #c8cbce;
+}
+/* Data Examples Nav Tabs Content*/
+.data-examples {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  padding: 3rem;
+}
+
+.tab-content {
+  padding: 2rem;
+  font-size: 1.15rem;
+  font-weight: 300;
+}
+
+img.square {
+  object-fit: contain;
+  width:230px;
+  height:230px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Modal Image */
+/* Style the Image Used to Trigger the Modal */
+.myImg {
+   border-radius: 5px;
+   cursor: pointer;
+   transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   padding-top: 100px; /* Location of the box */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgb(0,0,0); /* Fallback color */
+   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+   margin: auto;
+   display: block;
+   width: 80%;
+   max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+.caption {
+   margin: auto;
+   display: block;
+   width: 80%;
+   max-width: 700px;
+   text-align: center;
+   color: #ccc;
+   padding: 10px 0;
+   height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, .caption {
+   animation-name: zoom;
+   animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+   from {transform:scale(0)}
+   to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+   position: absolute;
+   top: 15px;
+   right: 35px;
+   color: #f1f1f1;
+   font-size: 40px;
+   font-weight: bold;
+   transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+   color: #bbb;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+   .modal-content {
+       width: 100%;
+   }
 }

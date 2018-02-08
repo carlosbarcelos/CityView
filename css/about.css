@@ -73,9 +73,9 @@ text-align: center;
 }
 
 img.square {
-  object-fit: cover;
-  width:230px;
-  height:230px;
+  object-fit: contain;
+  width:400px;
+  height:400px;
   display: block;
   margin: 0 auto;
 }

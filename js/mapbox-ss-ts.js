@@ -45,7 +45,7 @@ map.on('load', function () {
     },
     'paint': {
       'circle-radius': 4,
-      'circle-color': 'rgba(204, 209, 46, .75)'
+      'circle-color': 'rgba(181, 186, 39, .75)'
     }
   });
   // Hubway Stations layer

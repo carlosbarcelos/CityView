@@ -237,38 +237,60 @@
           </ul>
           <hr>
           <h2>Data Story</h2>
-          <h3></h3>
+          <h3>Recycling Data (Monday - Friday)</h3>
           <div class="row">
             <div class="col-4">
-              <img class="square myImg"src="Images/CityView_logo.jpg" alt="CityView Logo" onclick="onClick2(this)">
+              <img class="square myImg"src="Images/data-stories/timeSeries1.png" alt="All days of the week shown in one view. A different color for each day." onclick="onClick2(this)">
             </div>
             <div class="col-8">
               <p>
-                TO BE FILLED WITH DATA STORIES
+                Imaging a recycling company interested in understanding how their teams move throughout the city during the week.
+                The company can use GPS locations to track each of the houses that their trucks visit during each day of the week.
+                Using this data, they would be able to visualize the the time series distribution of their resources on our website.
+                In our example, we used existing recycling data recorded during each weekday. Five unique colors differentiate
+                each day of the week. Within each day, each data point shows a location that was visited by the recycling company.
               </p>
             </div>
           </div>
           <div class="row">
             <div class="col-8">
               <p>
-                TO BE FILLED WITH DATA STORIES
+                The recycling company can use this visualization to make some important discoveries. For example, imagine the company
+                invests in a new truck and needs to consider which area to send that truck. They can use our system to view
+                each day’s data one at a time in order to find the area in the city that has the most stops with relatively few trucks
+                visiting those stops. By doing this sort of analysis, the recycling company is able to better distribute their trucks in order to maximize coverage in the city.
               </p>
             </div>
             <div class="col-4">
-              <img class="square myImg"src="Images/WPI_logo.png" alt="WPI Logo" onclick="onClick2(this)">
+              <img class="square myImg"src="Images/data-stories/timeSeries2.png" alt="One day of the week (Tuesday) shown to visualize coverage on a given day." onclick="onClick2(this)">
             </div>
           </div>
-          <p></p>
+          <p>
+            Furthermore, using our visualizations the recycling company is able to determine the best route for their trucks
+            on any given day. Assuming that the company has a large fleet of trucks, the best option they have is to spread out
+            their trucks throughout the city and have those trucks service large neighborhoods in one day of operation.
+            By separating the trucks, the company is able to minimize the amount of traffic that they cause in the city.
+            By servicing entire neighborhoods at a time, the company is able to alleviate the burden on a neighborhood by visiting the area only once.
+          </p>
           <div class="row">
             <div class="col-4">
-              <img class="square myImg"src="Images/CityView_logo.jpg" alt="CityView Logo" onclick="onClick2(this)">
+              <img class="square myImg"src="Images/data-stories/timeSeries3.png" alt="Visualizing the redoubling of resources on Wednesday and Friday coverage." onclick="onClick2(this)">
             </div>
             <div class="col-8">
               <p>
-                TO BE FILLED WITH DATA STORIES
+                Using our visualization tools we are able to see one area in which this best practice is violated.
+                Using the data from the Wednesday (purple) and Friday (red) datasets, we are able to see a situation in which
+                the recycling company a) crosses the large Arborway highway unnecessarily because they b) fail to service the
+                entire neighborhood on the east side of Washington Street. By simply visualizing this data we can recommend to
+                the recycling company that they should consider servicing the Washington Street neighborhood entirely on Friday
+                in order to both optimize their coverage in that area and alleviate any traffic congestion they may cause.
               </p>
             </div>
           </div>
+          <p>
+            Our visualization tools also offer a “carousel” feature which separates the visualization for each day of the week
+            and shows the days, one by on, for a short period of time. This feature allows the user to find patterns as their time series data evolves over time.
+          </p>
           <!-- The Modal -->
           <div id="modal02" class="modal" onclick="this.style.display='none'">
             <img id="img02" class="modal-content">

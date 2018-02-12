@@ -7,11 +7,11 @@ function onClick1(element) {
 function onClick2(element) {
   document.getElementById("img02").src = element.src;
   document.getElementById("modal02").style.display = "block";
-  document.getElementById("caption02").innerHTML = "2";
+  document.getElementById("caption02").innerHTML = element.alt;
 }
 
 function onClick3(element) {
   document.getElementById("img03").src = element.src;
   document.getElementById("modal03").style.display = "block";
-  document.getElementById("caption03").innerHTML = "3";
+  document.getElementById("caption03").innerHTML = element.alt;
 }

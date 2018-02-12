@@ -124,29 +124,77 @@
               <a href="datasets/spatial-static_temporal-static/Hubway_Stations.csv" download><i class="fa fa-download" aria-hidden="true"></i></a>
             </li>
             <ul>
-              <li>Boston provides information on the locations of their Hubway Bike Share bike rack locations.</li>
+              <li>Boston provides information on the locations of their <a href="https://www.thehubway.com/">Hubway Bike Share</a> bike rack locations.</li>
             </ul>
           </ul>
           <hr>
           <h2>Data Story</h2>
-          <div class="row">
-            <div class="col-4">
-              <img class="square myImg" src="Images/CityView_logo.jpg" alt="CityView Logo" onclick="onClick1(this)">
+          <div class="data-story">
+            <h3>Contour Lines | Streetlights | Hubway Stations</h3>
+            <p>
+              Imagine a bike share program interested in creating new locations for their existing bike share network.
+              In this example, consider the city wide Hubway Bike Share in Boston, MA.
+              Using just three datasets and our mapping features, we are able to give recommendations on where and where not to place new Hubway bike stations.
+            </p>
+            <h4>On Streetlights</h4>
+            <div class="row">
+              <div class="col-4">
+                <img class="square myImg"src="Images/data-stories/staticData1.png" alt="A small sample of Boston's streetlight distribution." onclick="onClick1(this)">
+              </div>
+              <div class="col-8">
+                <p>
+                  First consider the safety of a bike rider - new bike stations should be placed in a well-lit areas.
+                  Using a data set of all street lights in Boston, we are able to cross-reference areas that are more or less safe for new bike rental stations.
+                </p>
+              </div>
             </div>
-            <div class="col-8">
-              <p>
-                TO BE FILLED WITH DATA STORIES
-              </p>
+            <div class="row">
+              <div class="col-8">
+                <p>
+                  Using this view gives a high level view of the city. For a more useful application we could use this view to ask
+                  “Is this area a well-lit location for a new bike station?” For example, there are not any street lights in the
+                  neighborhood of Round Hill or Edge Hill street. The bike share manager may have thought this would be a successful
+                  location due to the high population of the residential area, however our urban data visualization shows that putting
+                  a bike station in that area may lead to decreased rider safety and increased bike theft under the veil of a dark night.
+                </p>
+              </div>
+              <div class="col-4">
+                <img class="square myImg"src="Images/data-stories/staticData2.png" alt="The Round Hill/Edge Hill Street neighborhood may be populated but it is also poorly lit." onclick="onClick1(this)">
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-8">
-              <p>
-                TO BE FILLED WITH DATA STORIES
-              </p>
+            <h4>On Contour Lines</h4>
+            <p>
+              Next consider the users that will have to ride the bikes in their physical environment.
+              One common problem that bike share programs have is that users will avoid areas with steep hills.
+              By adding a contour layer we are able to get an idea about the environment and make decisions based on the elevation of the land.
+            </p>
+            <div class="row">
+              <div class="col-4">
+                <img class="square myImg"src="Images/data-stories/staticData3.png" alt="Using contour lines helps to avoid placing bike stations on hills that are too steep." onclick="onClick1(this)">
+              </div>
+              <div class="col-8">
+                <p>
+                  For example, consider adding a new bike station at New England Baptist Hospital. The bike share manager may initially
+                  think that a hospital would be a popular place for a new bike station; the hospital may promote healthy transportation
+                  and there are a lot of employees who might benefit from riding a bike to work. However, when considering the terrain,
+                  it is clear that New England Baptist Hospital is on a steep hill due to the frequent and closely packed contour lines.
+                  Using the contour data it the bike share manager realizes that the hospital is on too steep of a hill to make it a successful bike station.
+                </p>
+              </div>
             </div>
-            <div class="col-4">
-              <img class="square myImg" src="Images/WPI_logo.png" alt="WPI Logo" onclick="onClick1(this)">
+            <h4>All Together</h4>
+            <div class="row">
+              <div class="col-8">
+                <p>
+                  All of this data is useful individually but more powerful all together. By combining the three layers of data on one map
+                  we are able to show a more complete picture of the urban environment. Now the user can find the best location a new bike station,
+                  considering well lit areas and low elevations. Furthermore, they can ensure that the locations of bike stations are
+                  neither to close together - causing redundant stops - nor too far apart - causing long uncomfortable rides - from one another.
+                </p>
+              </div>
+              <div class="col-4">
+                <img class="square myImg"src="Images/data-stories/staticData4.png" alt="Using all available data in conjunction creates a more clear picture of the desired solution." onclick="onClick1(this)">
+              </div>
             </div>
           </div>
           <!-- The Modal -->
@@ -155,6 +203,7 @@
             <div class="caption" id="caption01"></div>
           </div>
         </div>
+
         <!-- Time Series Data Pane -->
         <div id="timeseries" class="tab-pane" role="tabpanel">
           <h2>Data Details</h2>
@@ -188,6 +237,7 @@
           </ul>
           <hr>
           <h2>Data Story</h2>
+          <h3></h3>
           <div class="row">
             <div class="col-4">
               <img class="square myImg"src="Images/CityView_logo.jpg" alt="CityView Logo" onclick="onClick2(this)">
@@ -206,6 +256,17 @@
             </div>
             <div class="col-4">
               <img class="square myImg"src="Images/WPI_logo.png" alt="WPI Logo" onclick="onClick2(this)">
+            </div>
+          </div>
+          <p></p>
+          <div class="row">
+            <div class="col-4">
+              <img class="square myImg"src="Images/CityView_logo.jpg" alt="CityView Logo" onclick="onClick2(this)">
+            </div>
+            <div class="col-8">
+              <p>
+                TO BE FILLED WITH DATA STORIES
+              </p>
             </div>
           </div>
           <!-- The Modal -->

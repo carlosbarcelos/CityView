@@ -18,6 +18,15 @@ var baseMaps = {
   "Light": lightView
 };
 
+//** Construct the map **\\
+var map = L.map('mapid', {
+  renderer: L.canvas(),
+  center: [42.3601, -71.0589],
+  zoom: 8,
+  layers: [lightView]
+  // layers: [lightView,streetlightsTile,bikestationsTile]
+});
+
 //** Tilesets **\\
 // Contours Layer
 var contorsTile = L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.mapbox-terrain-v2/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3Vydi1tcXAiLCJhIjoiY2o5eDNxZHRtN3hlMzJxbGcycm1kdjNkbCJ9.KbJcO99y-sr0o_x4zZMF0g', {
@@ -28,6 +37,7 @@ var contorsTile = L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.mapbox-ter
   opacity: 0.5
 });
 
+//Streetlights Layer
 var streetlightsTile = L.tileLayer('https://api.tiles.mapbox.com/v4/surv-mqp.5lmjns02/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3Vydi1tcXAiLCJhIjoiY2o5eDNxZHRtN3hlMzJxbGcycm1kdjNkbCJ9.KbJcO99y-sr0o_x4zZMF0g', {
   layers: 'streetlight-locations-8rhrqp',
   format: 'image/png',
@@ -38,6 +48,7 @@ var streetlightsTile = L.tileLayer('https://api.tiles.mapbox.com/v4/surv-mqp.5lm
   opacity: 0.5
 });
 
+//Bike Stations Layer
 var bikestationsTile = L.tileLayer('https://api.tiles.mapbox.com/v4/surv-mqp.8b5gs9dt/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3Vydi1tcXAiLCJhIjoiY2o5eDNxZHRtN3hlMzJxbGcycm1kdjNkbCJ9.KbJcO99y-sr0o_x4zZMF0g', {
   layers: 'Hubway_Stations-noName-by4u5m',
   format: 'image/png',
@@ -48,27 +59,13 @@ var bikestationsTile = L.tileLayer('https://api.tiles.mapbox.com/v4/surv-mqp.8b5
   opacity: 0.5
 });
 
-var overlayMaps = {
-  "<i class='fa fa-dot-circle-o'></i> Contors": contorsTile,
-  "<i class='fa fa-lightbulb-o'></i> <span style='background-color: #579A5D'>Street Lights</span>": streetlightsTile,
-  "<i class='fa fa-bicycle'></i> <span style='background-color: #aa85b2'>Hubway Stations</span>": bikestationsTile,
-  // "<i class='fa fa-ban'></i> <span>TEST</span>": myRenderer,
-};
-
-//** Construct the map **\\
-// var map = L.map('mapid', {
-//   center: [42.3601, -71.0589],
-//   zoom: 12,
-//   renderer: L.canvas({ padding: 0.5 }),
-//   layers: [lightView,streetlightsTile,bikestationsTile]
-// });
-
+//Canvas Layer
 var myRenderer = L.canvas({ padding: 0.5 });
 
 for (var i = 0; i < 100000; i += 1) { // 100k points
-	L.circleMarker(getRandomLatLng(), {
-  	renderer: myRenderer
-  });
+  L.circleMarker(getRandomLatLng(), {
+    renderer: myRenderer
+  }).addTo(map).bindPopup('marker ' + i);
 }
 
 function getRandomLatLng() {
@@ -78,14 +75,12 @@ function getRandomLatLng() {
   ];
 }
 
-var map = L.map("mapid", {
-  center: [48.85, 2.35],
-  zoom: 8,
-  layers: [streetView],
-  preferCanvas: true
-});
-
-myRenderer.addTo(map);
+var overlayMaps = {
+  "<i class='fa fa-dot-circle-o'></i> Contors": contorsTile,
+  "<i class='fa fa-lightbulb-o'></i> <span style='background-color: #579A5D'>Street Lights</span>": streetlightsTile,
+  "<i class='fa fa-bicycle'></i> <span style='background-color: #aa85b2'>Hubway Stations</span>": bikestationsTile,
+  // "Random Circles": myRenderer
+};
 
 //** Controls **\\
 // Layers control
@@ -95,6 +90,15 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 var informationContent = `<p>This interaction is comprised of two datasets: streetlight locations and Hubway bike stations.</br>
                           It is interesting to note the placement of bike stations and note that they tend to occur near streetlights.</p>`;
 var informationPopup = L.popup().setContent(informationContent);
+
 L.easyButton('fa-info-circle fa-lg', function(btn, map){
   informationPopup.setLatLng(map.getCenter()).openOn(map);
+}).addTo(map);
+
+L.easyButton('On', function(btn, map){
+  myRenderer.addTo(map);
+}).addTo(map);
+
+L.easyButton('Off', function(btn, map){
+  myRenderer.removeFrom(map);
 }).addTo(map);

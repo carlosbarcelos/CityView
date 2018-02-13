@@ -18,71 +18,170 @@ var baseMaps = {
   "Light": lightView
 };
 
-//** Tilesets **\\
-var monday_recycleTile = L.tileLayer('https://api.tiles.mapbox.com/v4/surv-mqp.asq2dowm/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3Vydi1tcXAiLCJhIjoiY2o5eDNxZHRtN3hlMzJxbGcycm1kdjNkbCJ9.KbJcO99y-sr0o_x4zZMF0g', {
-  layers: 'RecyclingMonday-cpj0mg',
-  format: 'image/png',
-  type: 'raster',
-  attribution: 'Waste Schedule Data © <a href="https://data.boston.gov/">Analyze Boston</a>',
-  transparent: true,
-  maxZoom: 17,
-  opacity: 0.5
-});
-
-var tuesday_recycleTile = L.tileLayer('https://api.tiles.mapbox.com/v4/surv-mqp.3chr4167/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3Vydi1tcXAiLCJhIjoiY2o5eDNxZHRtN3hlMzJxbGcycm1kdjNkbCJ9.KbJcO99y-sr0o_x4zZMF0g', {
-  layers: 'RecyclingTuesday-194h75',
-  format: 'image/png',
-  type: 'raster',
-  attribution: 'Waste Schedule Data © <a href="https://data.boston.gov/">Analyze Boston</a>',
-  transparent: true,
-  maxZoom: 17,
-  opacity: 0.5
-});
-
-var wednesday_recycleTile = L.tileLayer('https://api.tiles.mapbox.com/v4/surv-mqp.cik36us1/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3Vydi1tcXAiLCJhIjoiY2o5eDNxZHRtN3hlMzJxbGcycm1kdjNkbCJ9.KbJcO99y-sr0o_x4zZMF0g', {
-  layers: 'RecyclingWednesday-792mo0',
-  format: 'image/png',
-  type: 'raster',
-  attribution: 'Waste Schedule Data © <a href="https://data.boston.gov/">Analyze Boston</a>',
-  transparent: true,
-  maxZoom: 17,
-  opacity: 0.5
-});
-
-var thursday_recycleTile = L.tileLayer('https://api.tiles.mapbox.com/v4/surv-mqp.4tm7g9jf/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3Vydi1tcXAiLCJhIjoiY2o5eDNxZHRtN3hlMzJxbGcycm1kdjNkbCJ9.KbJcO99y-sr0o_x4zZMF0g', {
-  layers: 'RecyclingThursday-34gtcb',
-  format: 'image/png',
-  type: 'raster',
-  attribution: 'Waste Schedule Data © <a href="https://data.boston.gov/">Analyze Boston</a>',
-  transparent: true,
-  maxZoom: 17,
-  opacity: 0.5
-});
-
-var friday_recycleTile = L.tileLayer('https://api.tiles.mapbox.com/v4/surv-mqp.7k6h0q88/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3Vydi1tcXAiLCJhIjoiY2o5eDNxZHRtN3hlMzJxbGcycm1kdjNkbCJ9.KbJcO99y-sr0o_x4zZMF0g', {
-  layers: 'RecyclingFriday-58cxoc',
-  format: 'image/png',
-  type: 'raster',
-  attribution: 'Waste Schedule Data © <a href="https://data.boston.gov/">Analyze Boston</a>',
-  transparent: true,
-  maxZoom: 17,
-  opacity: 0.5
-});
-
-var overlayMaps = {
-  "<i class='fa fa-recycle'></i> <span style='background-color: #A2A2AB'>Monday Recycling</span>": monday_recycleTile,
-  "<i class='fa fa-recycle'></i> <span style='background-color: #F1A2A7'>Tuesday Recycling</span>": tuesday_recycleTile,
-  "<i class='fa fa-recycle'></i> <span style='background-color: #E8A4C4'>Wednesday Recycling</span>": wednesday_recycleTile,
-  "<i class='fa fa-recycle'></i> <span style='background-color: #C3E5ED'>Thursday Recycling</span>": thursday_recycleTile,
-  "<i class='fa fa-recycle'></i> <span style='background-color: #E29EC8'>Friday Recycling</span>": friday_recycleTile
-};
-
 //** Construct the map **\\
 var map = L.map('mapid', {
+  renderer: L.canvas(),
   center: [42.3601, -71.0589],
   zoom: 12,
-  layers: [lightView,monday_recycleTile]
+  layers: [lightView]
 });
+
+//** Canvas Layers**\\
+//NOTE: Day of week is available by playing .bindPopup(day) directly after .addTo(map)
+//      However this causes MASSIVE slowdown on map and is not recommended
+//Monday Recycling
+var mondayRecyclingCanvas = L.canvas({ padding: 0.5 });
+function addMondayRecycling(){
+  // Get dataLength, lat, lon
+  var mondayRecyclingArray = getMondayRecycling();
+  var dataLength = mondayRecyclingArray[0];
+  var latList = mondayRecyclingArray[1];
+  var lonList = mondayRecyclingArray[2];
+  var day = mondayRecyclingArray[3];
+
+  // Add points to canvas layer
+  for (var i = 0; i < dataLength; i++) {
+    L.circleMarker(getLatLon(i), {
+      renderer: mondayRecyclingCanvas,
+      radius: 2,
+      color: '#E74C3C'
+    }).addTo(map);
+  }
+
+  // HELPER: Get (lat,lon) for specific point
+  function getLatLon(i) {
+    return [
+      latList[i],
+      lonList[i]
+    ];
+  };
+
+  mondayRecyclingCanvas.addTo(map);
+};
+
+//Tuesday Recycling
+var tuesdayRecyclingCanvas = L.canvas({ padding: 0.5 });
+function addTuesdayRecycling(){
+  // Get dataLength, lat, lon
+  var tuesdayRecyclingArray = getTuesdayRecycling();
+  var dataLength = tuesdayRecyclingArray[0];
+  var latList = tuesdayRecyclingArray[1];
+  var lonList = tuesdayRecyclingArray[2];
+
+  // Add points to canvas layer
+  for (var i = 0; i < dataLength; i++) {
+    L.circleMarker(getLatLon(i), {
+      renderer: tuesdayRecyclingCanvas,
+      radius: 2,
+      color: '#E67E22'
+    }).addTo(map);
+  }
+
+  // HELPER: Get (lat,lon) for specific point
+  function getLatLon(i) {
+    return [
+      latList[i],
+      lonList[i]
+    ];
+  };
+
+  tuesdayRecyclingCanvas.addTo(map);
+};
+
+//Wednesday Recycling
+var wednesdayRecyclingCanvas = L.canvas({ padding: 0.5 });
+function addWednesdayRecycling(){
+  // Get dataLength, lat, lon
+  var wednesdayRecyclingArray = getWednesdayRecycling();
+  var dataLength = wednesdayRecyclingArray[0];
+  var latList = wednesdayRecyclingArray[1];
+  var lonList = wednesdayRecyclingArray[2];
+
+  // Add points to canvas layer
+  for (var i = 0; i < dataLength; i++) {
+    L.circleMarker(getLatLon(i), {
+      renderer: wednesdayRecyclingCanvas,
+      radius: 2,
+      color: '#2ECC71'
+    }).addTo(map);
+  }
+
+  // HELPER: Get (lat,lon) for specific point
+  function getLatLon(i) {
+    return [
+      latList[i],
+      lonList[i]
+    ];
+  };
+
+  wednesdayRecyclingCanvas.addTo(map);
+};
+
+//Thursday Recycling
+var thursdayRecyclingCanvas = L.canvas({ padding: 0.5 });
+function addThursdayRecycling(){
+  // Get dataLength, lat, lon
+  var thursdayRecyclingArray = getThursdayRecycling();
+  var dataLength = thursdayRecyclingArray[0];
+  var latList = thursdayRecyclingArray[1];
+  var lonList = thursdayRecyclingArray[2];
+
+  // Add points to canvas layer
+  for (var i = 0; i < dataLength; i++) {
+    L.circleMarker(getLatLon(i), {
+      renderer: thursdayRecyclingCanvas,
+      radius: 2,
+      color: '#3498DB'
+    }).addTo(map);
+  }
+
+  // HELPER: Get (lat,lon) for specific point
+  function getLatLon(i) {
+    return [
+      latList[i],
+      lonList[i]
+    ];
+  };
+
+  thursdayRecyclingCanvas.addTo(map);
+};
+
+//Friday Recycling
+var fridayRecyclingCanvas = L.canvas({ padding: 0.5 });
+function addFridayRecycling(){
+  // Get dataLength, lat, lon
+  var fridayRecyclingArray = getFridayRecycling();
+  var dataLength = fridayRecyclingArray[0];
+  var latList = fridayRecyclingArray[1];
+  var lonList = fridayRecyclingArray[2];
+
+  // Add points to canvas layer
+  for (var i = 0; i < dataLength; i++) {
+    L.circleMarker(getLatLon(i), {
+      renderer: fridayRecyclingCanvas,
+      radius: 2,
+      color: '#9B59B6'
+    }).addTo(map);
+  }
+
+  // HELPER: Get (lat,lon) for specific point
+  function getLatLon(i) {
+    return [
+      latList[i],
+      lonList[i]
+    ];
+  };
+
+  fridayRecyclingCanvas.addTo(map);
+};
+
+var overlayMaps = {
+  "<i class='fa fa-recycle'></i> <span style='color: #E74C3C'>Monday Recycling</span>": mondayRecyclingCanvas,
+  "<i class='fa fa-recycle'></i> <span style='color: #E67E22'>Tuesday Recycling</span>": tuesdayRecyclingCanvas,
+  "<i class='fa fa-recycle'></i> <span style='color: #2ECC71'>Wednesday Recycling</span>": wednesdayRecyclingCanvas,
+  "<i class='fa fa-recycle'></i> <span style='color: #3498DB'>Thursday Recycling</span>": thursdayRecyclingCanvas,
+  "<i class='fa fa-recycle'></i> <span style='color: #9B59B6'>Friday Recycling</span>": fridayRecyclingCanvas
+};
 
 //** Controls **\\
 // Layers control
@@ -141,28 +240,28 @@ function timedCount(){
   switch(c){
     case 0: // Monday Recycling
     DoW = 'Moday';
-    monday_recycleTile.setOpacity(0.5);
-    friday_recycleTile.setOpacity(0);
+    mondayRecyclingCanvas.addTo(map);
+    fridayRecyclingCanvas.removeFrom(map);
     break;
     case 1: // Tuesday Recycling
     DoW = 'Tuesday';
-    tuesday_recycleTile.setOpacity(0.5);
-    monday_recycleTile.setOpacity(0);
+    tuesdayRecyclingCanvas.addTo(map);
+    mondayRecyclingCanvas.removeFrom(map);
     break;
     case 2: // Wednesday Recycling
     DoW = 'Wednesday';
-    wednesday_recycleTile.setOpacity(0.5);
-    tuesday_recycleTile.setOpacity(0);
+    wednesdayRecyclingCanvas.addTo(map);
+    tuesdayRecyclingCanvas.removeFrom(map);
     break;
     case 3: // Thursday Recycling
     DoW = 'Thursday';
-    thursday_recycleTile.setOpacity(0.5);
-    wednesday_recycleTile.setOpacity(0);
+    thursdayRecyclingCanvas.addTo(map);
+    wednesdayRecyclingCanvas.removeFrom(map);
     break;
     case 4: // Friday Recycling
     DoW = 'Friday';
-    friday_recycleTile.setOpacity(0.5);
-    thursday_recycleTile.setOpacity(0);
+    fridayRecyclingCanvas.addTo(map);
+    thursdayRecyclingCanvas.removeFrom(map);
     break;
   }
   t=setTimeout("timedCount()",1000);
@@ -175,18 +274,12 @@ function timedCount(){
 }
 
 function doTimer(){
-  // Reduce Visibility
-  monday_recycleTile.setOpacity(0);
-  tuesday_recycleTile.setOpacity(0);
-  wednesday_recycleTile.setOpacity(0);
-  thursday_recycleTile.setOpacity(0);
-  friday_recycleTile.setOpacity(0);
-  // Preload to map
-  monday_recycleTile.addTo(map);
-  tuesday_recycleTile.addTo(map);
-  wednesday_recycleTile.addTo(map);
-  thursday_recycleTile.addTo(map);
-  friday_recycleTile.addTo(map);
+  //Start clean
+  mondayRecyclingCanvas.removeFrom(map);
+  tuesdayRecyclingCanvas.removeFrom(map);
+  wednesdayRecyclingCanvas.removeFrom(map);
+  thursdayRecyclingCanvas.removeFrom(map);
+  fridayRecyclingCanvas.removeFrom(map);
   if (!timer_is_on){
     timer_is_on=1;
     timedCount();
@@ -196,20 +289,17 @@ function doTimer(){
 function stopCount(){
   clearTimeout(t);
   timer_is_on=0;
-  // Reset opacity
-  monday_recycleTile.setOpacity(0.5);
-  tuesday_recycleTile.setOpacity(0.5);
-  wednesday_recycleTile.setOpacity(0.5);
-  thursday_recycleTile.setOpacity(0.5);
-  friday_recycleTile.setOpacity(0.5);
-  // Remove from map
-  monday_recycleTile.removeFrom(map);
-  tuesday_recycleTile.removeFrom(map);
-  wednesday_recycleTile.removeFrom(map);
-  thursday_recycleTile.removeFrom(map);
-  friday_recycleTile.removeFrom(map);
 }
 
 function resetCount(){
   c=0;
 }
+
+//** Pre-load canvas layers **\\
+setTimeout(function(){
+    addMondayRecycling();
+    addTuesdayRecycling();
+    addWednesdayRecycling();
+    addThursdayRecycling();
+    addFridayRecycling();
+}, 1000);

@@ -61,19 +61,39 @@ var bikestationsTile = L.tileLayer('https://api.tiles.mapbox.com/v4/surv-mqp.8b5
 
 //Canvas Layer
 var myRenderer = L.canvas({ padding: 0.5 });
+/**/
 
-for (var i = 0; i < 100000; i += 1) { // 100k points
-  L.circleMarker(getRandomLatLng(), {
-    renderer: myRenderer
-  }).addTo(map).bindPopup('marker ' + i);
-}
 
-function getRandomLatLng() {
-	return [
-  	-90 + 180 * Math.random(),
-    -180 + 360 * Math.random()
-  ];
-}
+function parseStreetlights(){
+  var parseResult = parseCSV("../datasets/spatial-static_temporal-static/streetlight-locations.csv");
+
+  console.log(parseResult);
+  console.log(parseResult.length);
+  console.log(parseResult[0]);
+  console.log(parseResult[1]);
+  console.log(parseResult[2]);
+};
+
+
+
+
+// var dataLength = parseResult[0];
+// var latList = parseResult[1];
+// var lonList = parseResult[2];
+
+// for (var i = 0; i < dataLength; i++) {
+//   L.circleMarker(getLatLon(i), {
+//     renderer: myRenderer
+//   }).addTo(map).bindPopup('marker ' + i);
+// }
+//
+// function getLatLon(i) {
+// 	return [
+//     latList[i],
+//   	lonList[i]
+//   ];
+// }
+/**/
 
 var overlayMaps = {
   "<i class='fa fa-dot-circle-o'></i> Contors": contorsTile,
@@ -88,7 +108,7 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 // Information button
 var informationContent = `<p>This interaction is comprised of two datasets: streetlight locations and Hubway bike stations.</br>
-                          It is interesting to note the placement of bike stations and note that they tend to occur near streetlights.</p>`;
+It is interesting to note the placement of bike stations and note that they tend to occur near streetlights.</p>`;
 var informationPopup = L.popup().setContent(informationContent);
 
 L.easyButton('fa-info-circle fa-lg', function(btn, map){
@@ -101,4 +121,9 @@ L.easyButton('On', function(btn, map){
 
 L.easyButton('Off', function(btn, map){
   myRenderer.removeFrom(map);
+}).addTo(map);
+
+
+L.easyButton('Off', function(btn, map){
+  parseStreetlights();
 }).addTo(map);

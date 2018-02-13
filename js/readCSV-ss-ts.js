@@ -37,8 +37,6 @@ function getStreetlights(){
   return streetlightArray;
 };
 
-
-
 // Return the bike station information
 function getHubwayStations(){
   return hubwayArray;

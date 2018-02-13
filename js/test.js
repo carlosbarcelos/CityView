@@ -59,41 +59,72 @@ var bikestationsTile = L.tileLayer('https://api.tiles.mapbox.com/v4/surv-mqp.8b5
   opacity: 0.5
 });
 
-//Canvas Layer
-var myRenderer = L.canvas({ padding: 0.5 });
-/**/
+//** Canvas Layers**//
+//Streeetlight Canvas
+var streetlightCanvas = L.canvas({ padding: 0.5 });
+function addStreetlightLayer(){
+  // Get dataLength, lat, lon
+  var streetlightArray = getStreetlights();
+  var dataLength = streetlightArray[0];
+  var latList = streetlightArray[1];
+  var lonList = streetlightArray[2];
 
+  // Add points to canvas layer
+  for (var i = 0; i < dataLength; i++) {
+    L.circleMarker(getLatLon(i), {
+      renderer: streetlightCanvas,
+      radius: 2,
+      color: '#b5ba27',
+    }).addTo(map);
+  }
 
-function parseStreetlights(){
-  var parseResult = parseCSV("../datasets/spatial-static_temporal-static/streetlight-locations.csv");
+  // HELPER: Get (lat,lon) for specific point
+  function getLatLon(i) {
+    return [
+      latList[i],
+      lonList[i]
+    ];
+  };
 
-  console.log(parseResult);
-  console.log(parseResult.length);
-  console.log(parseResult[0]);
-  console.log(parseResult[1]);
-  console.log(parseResult[2]);
+  streetlightCanvas.addTo(map);
 };
 
+function removeStreetlightLayer(){
+  streetlightCanvas.removeFrom(map);
+};
 
+//Bike station canvas
+var bikeStationCanvas = L.canvas({ padding: 0.5 });
+function addBikeStationLayer(){
+  // Get dataLength, lat, lon
+  var bikeStationArray = getHubwayStations();
+  var dataLength = bikeStationArray[0];
+  var latList = bikeStationArray[1];
+  var lonList = bikeStationArray[2];
 
+  // Add points to canvas layer
+  for (var i = 0; i < dataLength; i++) {
+    L.circleMarker(getLatLon(i), {
+      renderer: bikeStationCanvas,
+      radius: 5,
+      color: '#075aff',
+    }).addTo(map);
+  };
 
-// var dataLength = parseResult[0];
-// var latList = parseResult[1];
-// var lonList = parseResult[2];
+  // HELPER: Get (lat,lon) for specific point
+  function getLatLon(i) {
+    return [
+      latList[i],
+      lonList[i]
+    ];
+  };
 
-// for (var i = 0; i < dataLength; i++) {
-//   L.circleMarker(getLatLon(i), {
-//     renderer: myRenderer
-//   }).addTo(map).bindPopup('marker ' + i);
-// }
-//
-// function getLatLon(i) {
-// 	return [
-//     latList[i],
-//   	lonList[i]
-//   ];
-// }
-/**/
+  bikeStationCanvas.addTo(map);
+};
+
+function removeBikeStationLayer(){
+  bikeStationCanvas.removeFrom(map);
+};
 
 var overlayMaps = {
   "<i class='fa fa-dot-circle-o'></i> Contors": contorsTile,
@@ -116,14 +147,17 @@ L.easyButton('fa-info-circle fa-lg', function(btn, map){
 }).addTo(map);
 
 L.easyButton('On', function(btn, map){
-  myRenderer.addTo(map);
+  addStreetlightLayer();
 }).addTo(map);
 
 L.easyButton('Off', function(btn, map){
-  myRenderer.removeFrom(map);
+  removeStreetlightLayer();
 }).addTo(map);
 
+L.easyButton('On', function(btn, map){
+  addBikeStationLayer();
+}).addTo(map);
 
 L.easyButton('Off', function(btn, map){
-  parseStreetlights();
+  removeBikeStationLayer();
 }).addTo(map);

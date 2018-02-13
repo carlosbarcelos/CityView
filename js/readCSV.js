@@ -1,55 +1,45 @@
-// var dataLength = 0;
-// var latList = [];
-// var lonList = [];
-//
-// function parseCSV(fileName) {
-//   d3.csv(fileName, function(d) {
-//   return {
-//     lat: +d.lat,
-//     lon: +d.lon
-//   };
-// }, function(d) {
-//   dataLength = d.length;
-//   for (var i = 0; i < d.length; i++) {
-//     latList.push(d[i].lat);
-//     lonList.push(d[i].lon);
-//   }
-//   return [getDataLength(), getLat(), getLon()];
-// })};
-//
-// function getDataLength(){
-//   return dataLength;
-// };
-//
-// function getLat(){
-//   return latList;
-// };
-//
-// function getLon(){
-//   return lonList;
-// };
+var streetlightArray = [];
+var hubwayArray = [];
 
-function parseCSV(fileName) {
-  var returnArray = [];
-  d3.csv(fileName, function (d) {
-    var dataLength = d.length;
+// Get the streetlight information
+d3.csv("../datasets/spatial-static_temporal-static/streetlight-locations.csv", function (d) {
+  var dataLength = d.length;
+  var latList = [];
+  var lonList = [];
 
-    var latList = [];
-    var lonList = [];
+  for (var i = 0; i < d.length; i++) {
+    latList.push(Number(d[i].lat));
+    lonList.push(Number(d[i].lon));
+  }
 
-    for (var i = 0; i < d.length; i++) {
-      latList.push(Number(d[i].lat));
-      lonList.push(Number(d[i].lon));
-    }
+  streetlightArray.push(dataLength);
+  streetlightArray.push(latList);
+  streetlightArray.push(lonList);
+});
+// Get the bike station information
+d3.csv("../datasets/spatial-static_temporal-static/Hubway_Stations.csv", function (d) {
+  var dataLength = d.length;
+  var latList = [];
+  var lonList = [];
 
-    returnArray.push(dataLength);
-    this.returnArray.push(latList);
-    this.returnArray.push(lonList);
-    console.log(this.returnArray);
-    console.log(this.returnArray.length);
-    return returnArray;
-  })
-  console.log(this.returnArray);
-  console.log(this.returnArray.length);
-  return this.returnArray;
+  for (var i = 0; i < d.length; i++) {
+    latList.push(Number(d[i].lat));
+    lonList.push(Number(d[i].lon));
+  }
+
+  hubwayArray.push(dataLength);
+  hubwayArray.push(latList);
+  hubwayArray.push(lonList);
+});
+
+// Return the streetlight information
+function getStreetlights(){
+  return streetlightArray;
+};
+
+
+
+// Return the bike station information
+function getHubwayStations(){
+  return hubwayArray;
 };

@@ -66,11 +66,12 @@ body {
 
 img.square {
   object-fit: contain;
-  width:230px;
-  height:230px;
+  width:250px;
+  height:250px;
   display: block;
   margin: 0 auto;
 }
+
 
 /* Modal Image */
 /* Style the Image Used to Trigger the Modal */

@@ -13,6 +13,7 @@
   <!-- Font Awesome icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Leaflet usage-->
+  <link href="../css/leaflet.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
   crossorigin=""/>
@@ -23,20 +24,6 @@
   <!-- Easy Button usage-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
   <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
-  <style>
-  #mapid {
-    position: absolute;
-    top:3rem;
-    bottom:0;
-    width:100%;
-  }
-  .leaflet-container {
-    background-color:rgba(255,0,0,0.0);
-  }
-  .leaflet-popup-content{
-    text-align: center;
-  }
-  </style>
 </head>
 
 <body>
@@ -48,7 +35,6 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -76,7 +62,7 @@
     </div>
   </nav>
   <!-- Insert the Mapbox map -->
-  <div id="mapid" style="height=180px;"></div>
+  <div id="mapid"></div>
   <!-- Javascript for mapbox spatial-static temporal-static -->
   <script src="../js/readCSV-ss-ts.js"></script>
   <script src="../js/leaflet-ss-ts.js"></script>

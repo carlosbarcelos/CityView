@@ -10,7 +10,7 @@ body {
 /* Header */
 .info-header {
   position: relative;
-  background: url(../Images/dark-map.jpg) no-repeat center center fixed;
+  background: url(../images/dark-map.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 

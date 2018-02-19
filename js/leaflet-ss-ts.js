@@ -90,21 +90,19 @@ function addBikeStationLayer(){
 var overlayMaps = {
   "<i class='fa fa-lightbulb-o'></i> <span style='color: #b5ba27'>Street Lights</span>": streetlightCanvas,
   "<i class='fa fa-bicycle'></i> <span style='color: #075aff'>Hubway Bike Stations</span>": bikeStationCanvas
-
 };
 
 //** Controls **\\
-// Layers control
-L.control.layers(baseMaps, overlayMaps).addTo(map);
-
 // Information button
 var informationContent = `<p>This interaction is comprised of two datasets: streetlight locations and Hubway bike stations.</br>
 It is interesting to note the placement of bike stations and note that they tend to occur near streetlights.</p>`;
 var informationPopup = L.popup().setContent(informationContent);
-
 L.easyButton('fa-info-circle fa-lg', function(btn, map){
   informationPopup.setLatLng(map.getCenter()).openOn(map);
 }).addTo(map);
+
+// Layers control
+L.control.layers(baseMaps, overlayMaps, {position: 'topleft'}).addTo(map);
 
 //** Pre-load canvas layers **\\
 setTimeout(function(){

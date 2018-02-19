@@ -184,9 +184,6 @@ var overlayMaps = {
 };
 
 //** Controls **\\
-// Layers control
-L.control.layers(baseMaps, overlayMaps).addTo(map);
-
 // Information button
 var informationContent = `<p>This interaction is comprised of five datasets: recycling schedule over each weekday.</br>
 Use the play button to cycle through each day to view how the recycling schedule changes over time.</p>`;
@@ -294,6 +291,9 @@ function stopCount(){
 function resetCount(){
   c=0;
 }
+
+// Layers control
+L.control.layers(baseMaps, overlayMaps, {position: 'topleft'}).addTo(map);
 
 //** Pre-load canvas layers **\\
 setTimeout(function(){

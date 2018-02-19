@@ -184,6 +184,9 @@ var overlayMaps = {
 };
 
 //** Controls **\\
+// Layers control
+L.control.layers(baseMaps, overlayMaps, {position: 'topleft'}).addTo(map);
+
 // Information button
 var informationContent = `<p>This interaction is comprised of five datasets: recycling schedule over each weekday.</br>
 Use the play button to cycle through each day to view how the recycling schedule changes over time.</p>`;
@@ -219,7 +222,8 @@ stopCarouselButton = L.easyButton({
   states:[{
     stateName: 'get-center',
     onClick: function(button, map){
-      stopCount()
+      stopCount();
+      display_panel.remove();
       stopCarouselButton.removeFrom(map);
       playCarouselButton.addTo(map);
     },
@@ -267,11 +271,12 @@ function timedCount(){
   } else{
     c += 1;
   }
-  console.log(DoW);
+  document.getElementById("DoW").innerHTML = DoW;
 }
 
 function doTimer(){
   //Start clean
+  display_panel.addTo(map);
   mondayRecyclingCanvas.removeFrom(map);
   tuesdayRecyclingCanvas.removeFrom(map);
   wednesdayRecyclingCanvas.removeFrom(map);
@@ -284,6 +289,7 @@ function doTimer(){
 }
 
 function stopCount(){
+
   clearTimeout(t);
   timer_is_on=0;
 }
@@ -292,8 +298,25 @@ function resetCount(){
   c=0;
 }
 
-// Layers control
-L.control.layers(baseMaps, overlayMaps, {position: 'topleft'}).addTo(map);
+//** Day of Week Text**\\
+L.Control.textbox = L.Control.extend({
+
+    onAdd: function(map) {
+        var div = L.DomUtil.create('div', 'display-panel');
+        div.innerHTML = "Day of Week";
+        div.id = 'DoW';
+
+        return div;
+    },
+
+    onRemove: function(map) {}
+});
+
+L.control.textbox = function(opts) {
+    return new L.Control.textbox(opts);
+}
+
+var display_panel = L.control.textbox({ position: 'bottomright' });
 
 //** Pre-load canvas layers **\\
 setTimeout(function(){

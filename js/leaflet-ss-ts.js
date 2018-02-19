@@ -93,6 +93,9 @@ var overlayMaps = {
 };
 
 //** Controls **\\
+// Layers control
+L.control.layers(baseMaps, overlayMaps, {position: 'topleft'}).addTo(map);
+
 // Information button
 var informationContent = `<p>This interaction is comprised of two datasets: streetlight locations and Hubway bike stations.</br>
 It is interesting to note the placement of bike stations and note that they tend to occur near streetlights.</p>`;
@@ -101,8 +104,6 @@ L.easyButton('fa-info-circle fa-lg', function(btn, map){
   informationPopup.setLatLng(map.getCenter()).openOn(map);
 }).addTo(map);
 
-// Layers control
-L.control.layers(baseMaps, overlayMaps, {position: 'topleft'}).addTo(map);
 
 //** Pre-load canvas layers **\\
 setTimeout(function(){

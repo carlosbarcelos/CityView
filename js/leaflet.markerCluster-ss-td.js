@@ -20,17 +20,33 @@ var baseMaps = {
 
 //** Construct the map **\\
 var map = L.map('mapid', {
-  renderer: L.canvas(),
   center: [42.3601, -71.0589],
   zoom: 12,
   layers: [lightView]
 });
 
-//** Canvas Layers**\\
+//** Markerclusters **//
 //NOTE: Day of week is available by playing .bindPopup(day) directly after .addTo(map)
 //      However this causes MASSIVE slowdown on map and is not recommended
+
+// HELPER: Get (lat,lon) for specific point
+function getLatLon(i, latList, lonList) {
+  return [
+    latList[i],
+    lonList[i]
+  ];
+};
+
 //Monday Recycling
-var mondayRecyclingCanvas = L.canvas({ padding: 0.5 });
+var mondayRecyclingCluster = L.markerClusterGroup({
+  iconCreateFunction: function(cluster) {
+    return L.divIcon({ html: '<div><span>' + cluster.getChildCount() + '</div></span>', className: 'marker-cluster recyclingMonday-cluster', iconSize: L.point(40, 40) });
+    // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
+  },
+  spiderfyOnMaxZoom: false, // disable spiderfy
+  disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
+  maxClusterRadius: 70 // < default (80) makes more, smaller clusters
+});
 function addMondayRecycling(){
   // Get dataLength, lat, lon
   var mondayRecyclingArray = getMondayRecycling();
@@ -39,28 +55,30 @@ function addMondayRecycling(){
   var lonList = mondayRecyclingArray[2];
   var day = mondayRecyclingArray[3];
 
-  // Add points to canvas layer
+  // Add markers to cluster group
+  var markerList = [];
   for (var i = 0; i < dataLength; i++) {
-    L.circleMarker(getLatLon(i), {
-      renderer: mondayRecyclingCanvas,
+    var marker = L.circleMarker(getLatLon(i, latList, lonList), {
       radius: 2,
       color: '#E74C3C'
-    }).addTo(map);
+    });
+    markerList.push(marker);
   }
 
-  // HELPER: Get (lat,lon) for specific point
-  function getLatLon(i) {
-    return [
-      latList[i],
-      lonList[i]
-    ];
-  };
-
-  mondayRecyclingCanvas.addTo(map);
+  mondayRecyclingCluster.addLayers(markerList);
+  map.addLayer(mondayRecyclingCluster);
 };
 
 //Tuesday Recycling
-var tuesdayRecyclingCanvas = L.canvas({ padding: 0.5 });
+var tuesdayRecyclingCluster = L.markerClusterGroup({
+  iconCreateFunction: function(cluster) {
+    return L.divIcon({ html: '<div><span>' + cluster.getChildCount() + '</div></span>', className: 'marker-cluster recyclingTuesday-cluster', iconSize: L.point(40, 40) });
+    // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
+  },
+  spiderfyOnMaxZoom: false, // disable spiderfy
+  disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
+  maxClusterRadius: 70 // < default (80) makes more, smaller clusters
+});
 function addTuesdayRecycling(){
   // Get dataLength, lat, lon
   var tuesdayRecyclingArray = getTuesdayRecycling();
@@ -68,28 +86,30 @@ function addTuesdayRecycling(){
   var latList = tuesdayRecyclingArray[1];
   var lonList = tuesdayRecyclingArray[2];
 
-  // Add points to canvas layer
+  // Add markers to cluster group
+  var markerList = [];
   for (var i = 0; i < dataLength; i++) {
-    L.circleMarker(getLatLon(i), {
-      renderer: tuesdayRecyclingCanvas,
+    var marker = L.circleMarker(getLatLon(i, latList, lonList), {
       radius: 2,
       color: '#E67E22'
-    }).addTo(map);
+    });
+    markerList.push(marker);
   }
 
-  // HELPER: Get (lat,lon) for specific point
-  function getLatLon(i) {
-    return [
-      latList[i],
-      lonList[i]
-    ];
-  };
-
-  tuesdayRecyclingCanvas.addTo(map);
+  tuesdayRecyclingCluster.addLayers(markerList);
+  map.addLayer(tuesdayRecyclingCluster);
 };
 
 //Wednesday Recycling
-var wednesdayRecyclingCanvas = L.canvas({ padding: 0.5 });
+var wednesdayRecyclingCluster = L.markerClusterGroup({
+  iconCreateFunction: function(cluster) {
+    return L.divIcon({ html: '<div><span>' + cluster.getChildCount() + '</div></span>', className: 'marker-cluster recyclingWednesday-cluster', iconSize: L.point(40, 40) });
+    // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
+  },
+  spiderfyOnMaxZoom: false, // disable spiderfy
+  disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
+  maxClusterRadius: 70 // < default (80) makes more, smaller clusters
+});
 function addWednesdayRecycling(){
   // Get dataLength, lat, lon
   var wednesdayRecyclingArray = getWednesdayRecycling();
@@ -97,28 +117,30 @@ function addWednesdayRecycling(){
   var latList = wednesdayRecyclingArray[1];
   var lonList = wednesdayRecyclingArray[2];
 
-  // Add points to canvas layer
+  // Add markers to cluster group
+  var markerList = [];
   for (var i = 0; i < dataLength; i++) {
-    L.circleMarker(getLatLon(i), {
-      renderer: wednesdayRecyclingCanvas,
+    var marker = L.circleMarker(getLatLon(i, latList, lonList), {
       radius: 2,
       color: '#2ECC71'
-    }).addTo(map);
+    });
+    markerList.push(marker);
   }
 
-  // HELPER: Get (lat,lon) for specific point
-  function getLatLon(i) {
-    return [
-      latList[i],
-      lonList[i]
-    ];
-  };
-
-  wednesdayRecyclingCanvas.addTo(map);
+  wednesdayRecyclingCluster.addLayers(markerList);
+  map.addLayer(wednesdayRecyclingCluster);
 };
 
 //Thursday Recycling
-var thursdayRecyclingCanvas = L.canvas({ padding: 0.5 });
+var thursdayRecyclingCluster = L.markerClusterGroup({
+  iconCreateFunction: function(cluster) {
+    return L.divIcon({ html: '<div><span>' + cluster.getChildCount() + '</div></span>', className: 'marker-cluster recyclingThursday-cluster', iconSize: L.point(40, 40) });
+    // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
+  },
+  spiderfyOnMaxZoom: false, // disable spiderfy
+  disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
+  maxClusterRadius: 70 // < default (80) makes more, smaller clusters
+});
 function addThursdayRecycling(){
   // Get dataLength, lat, lon
   var thursdayRecyclingArray = getThursdayRecycling();
@@ -126,28 +148,30 @@ function addThursdayRecycling(){
   var latList = thursdayRecyclingArray[1];
   var lonList = thursdayRecyclingArray[2];
 
-  // Add points to canvas layer
+  // Add markers to cluster group
+  var markerList = [];
   for (var i = 0; i < dataLength; i++) {
-    L.circleMarker(getLatLon(i), {
-      renderer: thursdayRecyclingCanvas,
+    var marker = L.circleMarker(getLatLon(i, latList, lonList), {
       radius: 2,
       color: '#3498DB'
-    }).addTo(map);
+    });
+    markerList.push(marker);
   }
 
-  // HELPER: Get (lat,lon) for specific point
-  function getLatLon(i) {
-    return [
-      latList[i],
-      lonList[i]
-    ];
-  };
-
-  thursdayRecyclingCanvas.addTo(map);
+  thursdayRecyclingCluster.addLayers(markerList);
+  map.addLayer(thursdayRecyclingCluster);
 };
 
 //Friday Recycling
-var fridayRecyclingCanvas = L.canvas({ padding: 0.5 });
+var fridayRecyclingCluster = L.markerClusterGroup({
+  iconCreateFunction: function(cluster) {
+    return L.divIcon({ html: '<div><span>' + cluster.getChildCount() + '</div></span>', className: 'marker-cluster recyclingFriday-cluster', iconSize: L.point(40, 40) });
+    // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
+  },
+  spiderfyOnMaxZoom: false, // disable spiderfy
+  disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
+  maxClusterRadius: 70 // < default (80) makes more, smaller clusters
+});
 function addFridayRecycling(){
   // Get dataLength, lat, lon
   var fridayRecyclingArray = getFridayRecycling();
@@ -155,32 +179,26 @@ function addFridayRecycling(){
   var latList = fridayRecyclingArray[1];
   var lonList = fridayRecyclingArray[2];
 
-  // Add points to canvas layer
+  // Add markers to cluster group
+  var markerList = [];
   for (var i = 0; i < dataLength; i++) {
-    L.circleMarker(getLatLon(i), {
-      renderer: fridayRecyclingCanvas,
+    var marker = L.circleMarker(getLatLon(i, latList, lonList), {
       radius: 2,
       color: '#9B59B6'
-    }).addTo(map);
+    });
+    markerList.push(marker);
   }
 
-  // HELPER: Get (lat,lon) for specific point
-  function getLatLon(i) {
-    return [
-      latList[i],
-      lonList[i]
-    ];
-  };
-
-  fridayRecyclingCanvas.addTo(map);
+  fridayRecyclingCluster.addLayers(markerList);
+  map.addLayer(fridayRecyclingCluster);
 };
 
 var overlayMaps = {
-  "<i class='fa fa-recycle'></i> <span style='color: #E74C3C'>Monday Recycling</span>": mondayRecyclingCanvas,
-  "<i class='fa fa-recycle'></i> <span style='color: #E67E22'>Tuesday Recycling</span>": tuesdayRecyclingCanvas,
-  "<i class='fa fa-recycle'></i> <span style='color: #2ECC71'>Wednesday Recycling</span>": wednesdayRecyclingCanvas,
-  "<i class='fa fa-recycle'></i> <span style='color: #3498DB'>Thursday Recycling</span>": thursdayRecyclingCanvas,
-  "<i class='fa fa-recycle'></i> <span style='color: #9B59B6'>Friday Recycling</span>": fridayRecyclingCanvas
+  "<i class='fa fa-recycle'></i> <span style='color: #E74C3C'>Monday Recycling</span>": mondayRecyclingCluster,
+  "<i class='fa fa-recycle'></i> <span style='color: #E67E22'>Tuesday Recycling</span>": tuesdayRecyclingCluster,
+  "<i class='fa fa-recycle'></i> <span style='color: #2ECC71'>Wednesday Recycling</span>": wednesdayRecyclingCluster,
+  "<i class='fa fa-recycle'></i> <span style='color: #3498DB'>Thursday Recycling</span>": thursdayRecyclingCluster,
+  "<i class='fa fa-recycle'></i> <span style='color: #9B59B6'>Friday Recycling</span>": fridayRecyclingCluster
 };
 
 //** Controls **\\
@@ -241,28 +259,28 @@ function timedCount(){
   switch(c){
     case 0: // Monday Recycling
     DoW = 'Moday';
-    mondayRecyclingCanvas.addTo(map);
-    fridayRecyclingCanvas.removeFrom(map);
+    mondayRecyclingCluster.addTo(map);
+    fridayRecyclingCluster.removeFrom(map);
     break;
     case 1: // Tuesday Recycling
     DoW = 'Tuesday';
-    tuesdayRecyclingCanvas.addTo(map);
-    mondayRecyclingCanvas.removeFrom(map);
+    tuesdayRecyclingCluster.addTo(map);
+    mondayRecyclingCluster.removeFrom(map);
     break;
     case 2: // Wednesday Recycling
     DoW = 'Wednesday';
-    wednesdayRecyclingCanvas.addTo(map);
-    tuesdayRecyclingCanvas.removeFrom(map);
+    wednesdayRecyclingCluster.addTo(map);
+    tuesdayRecyclingCluster.removeFrom(map);
     break;
     case 3: // Thursday Recycling
     DoW = 'Thursday';
-    thursdayRecyclingCanvas.addTo(map);
-    wednesdayRecyclingCanvas.removeFrom(map);
+    thursdayRecyclingCluster.addTo(map);
+    wednesdayRecyclingCluster.removeFrom(map);
     break;
     case 4: // Friday Recycling
     DoW = 'Friday';
-    fridayRecyclingCanvas.addTo(map);
-    thursdayRecyclingCanvas.removeFrom(map);
+    fridayRecyclingCluster.addTo(map);
+    thursdayRecyclingCluster.removeFrom(map);
     break;
   }
   t=setTimeout("timedCount()",1000);
@@ -277,11 +295,11 @@ function timedCount(){
 function doTimer(){
   //Start clean
   display_panel.addTo(map);
-  mondayRecyclingCanvas.removeFrom(map);
-  tuesdayRecyclingCanvas.removeFrom(map);
-  wednesdayRecyclingCanvas.removeFrom(map);
-  thursdayRecyclingCanvas.removeFrom(map);
-  fridayRecyclingCanvas.removeFrom(map);
+  mondayRecyclingCluster.removeFrom(map);
+  tuesdayRecyclingCluster.removeFrom(map);
+  wednesdayRecyclingCluster.removeFrom(map);
+  thursdayRecyclingCluster.removeFrom(map);
+  fridayRecyclingCluster.removeFrom(map);
   if (!timer_is_on){
     timer_is_on=1;
     timedCount();
@@ -300,15 +318,12 @@ function resetCount(){
 
 //** Day of Week Text**\\
 L.Control.textbox = L.Control.extend({
-
     onAdd: function(map) {
         var div = L.DomUtil.create('div', 'display-panel');
         div.innerHTML = "Day of Week";
         div.id = 'DoW';
-
         return div;
     },
-
     onRemove: function(map) {}
 });
 
@@ -318,7 +333,7 @@ L.control.textbox = function(opts) {
 
 var display_panel = L.control.textbox({ position: 'bottomright' });
 
-//** Pre-load canvas layers **\\
+//** Pre-load Cluster layers **\\
 setTimeout(function(){
     addMondayRecycling();
     addTuesdayRecycling();

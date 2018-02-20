@@ -27,9 +27,25 @@ var map = L.map('mapid', {
   // layers: [lightView,streetlightsTile,bikestationsTile]
 });
 
-//** Canvas Layers**//
-//Streeetlight Canvas
-var streetlightCanvas = L.canvas({ padding: 0.5 });
+//** Markerclusters **//
+// HELPER: Get (lat,lon) for specific point
+function getLatLon(i, latList, lonList) {
+  return [
+    latList[i],
+    lonList[i]
+  ];
+};
+
+//Streeetlight marker cluster
+var streetlightCluster = L.markerClusterGroup({
+  iconCreateFunction: function(cluster) {
+    return L.divIcon({ html: '<div><span>' + cluster.getChildCount() + '</div></span>', className: 'marker-cluster streetlight-cluster', iconSize: L.point(40, 40) });
+    // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
+  },
+  spiderfyOnMaxZoom: false, // disable spiderfy
+  disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
+  maxClusterRadius: 70 // < default (80) makes more, smaller clusters
+});
 function addStreetlightLayer(){
   // Get dataLength, lat, lon
   var streetlightArray = getStreetlights();
@@ -37,29 +53,31 @@ function addStreetlightLayer(){
   var latList = streetlightArray[1];
   var lonList = streetlightArray[2];
 
-  // Add points to canvas layer
+  // Add markers to cluster group
+  var streetlightMarkerList = [];
   for (var i = 0; i < dataLength; i++) {
-    L.circleMarker(getLatLon(i), {
-      renderer: streetlightCanvas,
+    var marker = L.circleMarker(getLatLon(i, latList, lonList), {
       radius: 2,
       color: '#b5ba27',
       opacity: 0.75
-    }).addTo(map);
+    });
+    streetlightMarkerList.push(marker);
   }
 
-  // HELPER: Get (lat,lon) for specific point
-  function getLatLon(i) {
-    return [
-      latList[i],
-      lonList[i]
-    ];
-  };
-
-  streetlightCanvas.addTo(map);
+  streetlightCluster.addLayers(streetlightMarkerList);
+  map.addLayer(streetlightCluster);
 };
 
 //Bike station canvas
-var bikeStationCanvas = L.canvas({ padding: 0.5 });
+var bikestationCluster = L.markerClusterGroup({
+  iconCreateFunction: function(cluster) {
+    return L.divIcon({ html: '<div><span>' + cluster.getChildCount() + '</div></span>', className: 'marker-cluster bikestation-cluster', iconSize: L.point(40, 40) });
+    // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
+  },
+  spiderfyOnMaxZoom: false, // disable spiderfy
+  disableClusteringAtZoom: 14, // at this zoom level and below, markers will not be clustered
+  maxClusterRadius: 70 // < default (80) makes more, smaller clusters
+});
 function addBikeStationLayer(){
   // Get dataLength, lat, lon
   var bikeStationArray = getHubwayStations();
@@ -67,29 +85,23 @@ function addBikeStationLayer(){
   var latList = bikeStationArray[1];
   var lonList = bikeStationArray[2];
 
-  // Add points to canvas layer
+  // Add markers to cluster group
+  var bikestationMarkerList = [];
   for (var i = 0; i < dataLength; i++) {
-    L.circleMarker(getLatLon(i), {
-      renderer: bikeStationCanvas,
+    var marker = L.circleMarker(getLatLon(i, latList, lonList), {
       radius: 5,
       color: '#075aff'
-    }).addTo(map);
-  };
+    });
+    bikestationMarkerList.push(marker);
+  }
 
-  // HELPER: Get (lat,lon) for specific point
-  function getLatLon(i) {
-    return [
-      latList[i],
-      lonList[i]
-    ];
-  };
-
-  bikeStationCanvas.addTo(map);
+  bikestationCluster.addLayers(bikestationMarkerList);
+  map.addLayer(bikestationCluster);
 };
 
 var overlayMaps = {
-  "<i class='fa fa-lightbulb-o'></i> <span style='color: #b5ba27'>Street Lights</span>": streetlightCanvas,
-  "<i class='fa fa-bicycle'></i> <span style='color: #075aff'>Hubway Bike Stations</span>": bikeStationCanvas
+  "<i class='fa fa-lightbulb-o'></i> <span style='color: #b5ba27'>Street Lights</span>": streetlightCluster,
+  "<i class='fa fa-bicycle'></i> <span style='color: #075aff'>Hubway Bike Stations</span>": bikestationCluster
 };
 
 //** Controls **\\
@@ -107,6 +119,6 @@ L.easyButton('fa-info-circle fa-lg', function(btn, map){
 
 //** Pre-load canvas layers **\\
 setTimeout(function(){
-    addStreetlightLayer();
-    addBikeStationLayer();
+  addStreetlightLayer();
+  addBikeStationLayer();
 }, 1000);

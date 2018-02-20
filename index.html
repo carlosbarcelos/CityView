@@ -15,7 +15,7 @@
 
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="javascript:void(0)">
+    <a class="navbar-brand" href="#">
       <img src="images/CityView_logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="CityView logo">
       CityView
     </a>
@@ -48,21 +48,21 @@
     </div>
   </nav>
   <!-- End of navbar, start of content -->
-
-  <main role="main" class="container-fluid">
-    <!-- Informational video overviewing the project -->
-    <section class="section home-section">
-      <h2 class="h1 text-center py-5">CityView: Urban Data Visualization</h2>
-      <center><a class="section-description" href="dataInformation.html">Take the tour.</a></center>
-    </section>
-    <br><br>
-    <center><img src="images/CityView_logo.jpg" class="d-inline-block align-top" alt="CityView logo"></center>
-  </main>
-  <!-- Bootstrap core JavaScript
-  ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/x1R1hmPrPBc?autoplay=1&loop=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  <!-- For calling the video from directory
+  <section class="section home-section">
+  <h1 class="text-center py-5">CityView: Urban Data Visualization</h1>
+  <center><video autoplay="true" muted="" loop="" id="intro">
+  <source src="introVideo.mp4" type="video/mp4">
+</video></center>
+</section> -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

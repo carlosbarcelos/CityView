@@ -318,15 +318,12 @@ function resetCount(){
 
 //** Day of Week Text**\\
 L.Control.textbox = L.Control.extend({
-
     onAdd: function(map) {
         var div = L.DomUtil.create('div', 'display-panel');
         div.innerHTML = "Day of Week";
         div.id = 'DoW';
-
         return div;
     },
-
     onRemove: function(map) {}
 });
 

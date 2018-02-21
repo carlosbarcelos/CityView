@@ -44,7 +44,7 @@ var mondayRecyclingCluster = L.markerClusterGroup({
     // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
   },
   spiderfyOnMaxZoom: false, // disable spiderfy
-  disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
+  disableClusteringAtZoom: 18, // at this zoom level and below, markers will not be clustered
   maxClusterRadius: 70 // < default (80) makes more, smaller clusters
 });
 function addMondayRecycling(){
@@ -76,7 +76,7 @@ var tuesdayRecyclingCluster = L.markerClusterGroup({
     // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
   },
   spiderfyOnMaxZoom: false, // disable spiderfy
-  disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
+  disableClusteringAtZoom: 18, // at this zoom level and below, markers will not be clustered
   maxClusterRadius: 70 // < default (80) makes more, smaller clusters
 });
 function addTuesdayRecycling(){
@@ -107,7 +107,7 @@ var wednesdayRecyclingCluster = L.markerClusterGroup({
     // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
   },
   spiderfyOnMaxZoom: false, // disable spiderfy
-  disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
+  disableClusteringAtZoom: 18, // at this zoom level and below, markers will not be clustered
   maxClusterRadius: 70 // < default (80) makes more, smaller clusters
 });
 function addWednesdayRecycling(){
@@ -138,7 +138,7 @@ var thursdayRecyclingCluster = L.markerClusterGroup({
     // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
   },
   spiderfyOnMaxZoom: false, // disable spiderfy
-  disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
+  disableClusteringAtZoom: 18, // at this zoom level and below, markers will not be clustered
   maxClusterRadius: 70 // < default (80) makes more, smaller clusters
 });
 function addThursdayRecycling(){
@@ -169,7 +169,7 @@ var fridayRecyclingCluster = L.markerClusterGroup({
     // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
   },
   spiderfyOnMaxZoom: false, // disable spiderfy
-  disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
+  disableClusteringAtZoom: 18, // at this zoom level and below, markers will not be clustered
   maxClusterRadius: 70 // < default (80) makes more, smaller clusters
 });
 function addFridayRecycling(){

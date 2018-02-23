@@ -185,7 +185,7 @@ var overlayMaps = {
 
 //** Controls **\\
 // Layers control
-L.control.layers(baseMaps, overlayMaps, {position: 'topleft'}).addTo(map);
+L.control.layers(baseMaps, overlayMaps, {position: 'topleft', collapsed:false}).addTo(map);
 
 // Information button
 var informationContent = `<p>This interaction is comprised of five datasets: recycling schedule over each weekday.</br>

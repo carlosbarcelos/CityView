@@ -94,7 +94,7 @@ var overlayMaps = {
 
 //** Controls **\\
 // Layers control
-L.control.layers(baseMaps, overlayMaps, {position: 'topleft'}).addTo(map);
+L.control.layers(baseMaps, overlayMaps, {position: 'topleft', collapsed:false}).addTo(map);
 
 // Information button
 var informationContent = `<p>This interaction is comprised of two datasets: streetlight locations and Hubway bike stations.</br>

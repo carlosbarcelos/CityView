@@ -203,7 +203,7 @@ var overlayMaps = {
 
 //** Controls **\\
 // Layers control
-L.control.layers(baseMaps, overlayMaps, {position: 'topleft'}).addTo(map);
+L.control.layers(baseMaps, overlayMaps, {position: 'topleft',collapsed:false}).addTo(map);
 
 // Information button
 var informationContent = `<p>This interaction is comprised of five datasets: recycling schedule over each weekday.</br>
@@ -318,26 +318,43 @@ function resetCount(){
 
 //** Day of Week Text**\\
 L.Control.textbox = L.Control.extend({
-    onAdd: function(map) {
-        var div = L.DomUtil.create('div', 'display-panel');
-        div.innerHTML = "Day of Week";
-        div.id = 'DoW';
-        return div;
-    },
-    onRemove: function(map) {}
+  onAdd: function(map) {
+    var div = L.DomUtil.create('div', 'display-panel');
+    div.innerHTML = "Day of Week";
+    div.id = 'DoW';
+    return div;
+  },
+  onRemove: function(map) {}
 });
 
 L.control.textbox = function(opts) {
-    return new L.Control.textbox(opts);
+  return new L.Control.textbox(opts);
 }
 
-var display_panel = L.control.textbox({ position: 'bottomright' });
+var display_panel = L.control.textbox({ position: 'topright' });
+
+//** Legend **//
+var legend = L.control({position: 'bottomright'});
+legend.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'info legend'),
+  grades = ["Moday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  labels = ["../images/legend/legend-mondayRecycle.png","../images/legend/legend-tuesdayRecycle.png", "../images/legend/legend-wednesdayRecycle.png",
+  "../images/legend/legend-thursdayRecycle.png","../images/legend/legend-fridayRecycle.png"];
+  div.innerHTML += "<h4>Legend</h4>"
+  // loop through our density intervals and generate a label with a colored square for each interval
+  for (var i = 0; i < grades.length; i++) {
+    div.innerHTML +=
+    (" <img src="+ labels[i] +">") + "&#09" + grades[i] +'<br><br>';
+  }
+  return div;
+};
+legend.addTo(map);
 
 //** Pre-load Cluster layers **\\
 setTimeout(function(){
-    addMondayRecycling();
-    addTuesdayRecycling();
-    addWednesdayRecycling();
-    addThursdayRecycling();
-    addFridayRecycling();
+  addMondayRecycling();
+  addTuesdayRecycling();
+  addWednesdayRecycling();
+  addThursdayRecycling();
+  addFridayRecycling();
 }, 1000);

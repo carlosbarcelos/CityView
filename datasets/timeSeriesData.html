@@ -4,16 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Map to display Spatially Static and Temporally Static data.">
+  <meta name="description" content="Map to display Time Series Data.">
   <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-  <title>Spatially Static and Temporally Static Example</title>
+  <title>Time Series Data Example</title>
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <!-- Font Awesome icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Leaflet usage-->
+  <!-- Leaflet integration -->
   <link href="../css/leaflet.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
@@ -47,9 +47,9 @@
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Examples</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item active" href="#">Static Data <span class="sr-only">(current)</span></a>
-            <a class="dropdown-item" href="spatial-static_temporal-dynamic.html">Time Series Data</a>
-            <a class="dropdown-item" href="spatial-dynamic_temporal-dynamic.html">Dynamic Data</a>
+            <a class="dropdown-item" href="staticData.html">Static Data</a>
+            <a class="dropdown-item active" href="#">Time Series Data <span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="dynamicData.html">Dynamic Data</a>
           </div>
         </li>
         <li class="nav-item">
@@ -62,14 +62,23 @@
           <a class="nav-link" href="../team.html">Team</a>
         </li>
       </ul>
-      <a class="btn btn-sm btn-primary" href="spatial-static_temporal-static_mapbox.html" role="button" title="View this map using Mapbox API"><i class="fa fa-refresh" aria-hidden="true"></i> Mapbox</a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="versionSelection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Chose between the various visualization architectures.">
+          Version Selection
+        </button>
+        <div class="dropdown-menu" aria-labelledby="versionSelection">
+          <a class="dropdown-item active" href="#">Leaflet Markercluster</a>
+          <a class="dropdown-item" href="timeSeriesData_leaflet.html">Leaflet Canvas</a>
+          <a class="dropdown-item" href="timeSeriesData_mapbox.html">Mapbox</a>
+        </div>
+      </div>
     </div>
   </nav>
   <!-- Insert the Mapbox map -->
   <div id="mapid"></div>
-  <!-- Javascript for mapbox spatial-static temporal-static -->
-  <script src="../js/readCSV-ss-ts.js"></script>
-  <script src="../js/leaflet.markerCluster-ss-ts.js"></script>
+  <!-- Javascript for mapbox spatial-static temporal-dynamic -->
+  <script src="../js/timeSeriesData_readCSV.js"></script>
+  <script src="../js/timeSeriesData_markercluster.js"></script>
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->

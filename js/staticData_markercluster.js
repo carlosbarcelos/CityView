@@ -106,7 +106,7 @@ var overlayMaps = {
 
 //** Controls **\\
 // Layers control
-L.control.layers(baseMaps, overlayMaps, {position: 'topleft'}).addTo(map);
+L.control.layers(baseMaps, overlayMaps, {position: 'topleft', collapsed:false}).addTo(map);
 
 // Information button
 var informationContent = `<p>This interaction is comprised of two datasets: streetlight locations and Hubway bike stations.</br>
@@ -116,6 +116,21 @@ L.easyButton('fa-info-circle fa-lg', function(btn, map){
   informationPopup.setLatLng(map.getCenter()).openOn(map);
 }).addTo(map);
 
+//** Legend **//
+var legend = L.control({position: 'bottomright'});
+legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = ["Streetlight", "Hubway Bike Station"],
+        labels = ["../images/legend/legend-streetlight.png","../images/legend/legend-bikestation.png"];
+    div.innerHTML += "<h4>Legend</h4>"
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            (" <img src="+ labels[i] +">") + "&#09" + grades[i] +'<br><br>';
+    }
+    return div;
+};
+legend.addTo(map);
 
 //** Pre-load canvas layers **\\
 setTimeout(function(){

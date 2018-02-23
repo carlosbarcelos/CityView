@@ -5,7 +5,7 @@ var thursdayRecyclingArray = [];
 var fridayRecyclingArray = [];
 
 // Monday recycling information
-d3.csv("../datasets/spatial-static_temporal-dynamic/RecyclingMonday.csv", function (d) {
+d3.csv("../datasets/time-series-data/RecyclingMonday.csv", function (d) {
   var dataLength = d.length;
   var latList = [];
   var lonList = [];
@@ -23,7 +23,7 @@ d3.csv("../datasets/spatial-static_temporal-dynamic/RecyclingMonday.csv", functi
 });
 
 // Tuesday recycling information
-d3.csv("../datasets/spatial-static_temporal-dynamic/RecyclingTuesday.csv", function (d) {
+d3.csv("../datasets/time-series-data/RecyclingTuesday.csv", function (d) {
   var dataLength = d.length;
   var latList = [];
   var lonList = [];
@@ -41,7 +41,7 @@ d3.csv("../datasets/spatial-static_temporal-dynamic/RecyclingTuesday.csv", funct
 });
 
 // Wednesday recycling information
-d3.csv("../datasets/spatial-static_temporal-dynamic/RecyclingWednesday.csv", function (d) {
+d3.csv("../datasets/time-series-data/RecyclingWednesday.csv", function (d) {
   var dataLength = d.length;
   var latList = [];
   var lonList = [];
@@ -59,7 +59,7 @@ d3.csv("../datasets/spatial-static_temporal-dynamic/RecyclingWednesday.csv", fun
 });
 
 // Thursday recycling information
-d3.csv("../datasets/spatial-static_temporal-dynamic/RecyclingThursday.csv", function (d) {
+d3.csv("../datasets/time-series-data/RecyclingThursday.csv", function (d) {
   var dataLength = d.length;
   var latList = [];
   var lonList = [];
@@ -77,7 +77,7 @@ d3.csv("../datasets/spatial-static_temporal-dynamic/RecyclingThursday.csv", func
 });
 
 // Friday recycling information
-d3.csv("../datasets/spatial-static_temporal-dynamic/RecyclingFriday.csv", function (d) {
+d3.csv("../datasets/time-series-data/RecyclingFriday.csv", function (d) {
   var dataLength = d.length;
   var latList = [];
   var lonList = [];

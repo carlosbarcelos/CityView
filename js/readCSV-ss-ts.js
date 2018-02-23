@@ -2,7 +2,7 @@ var streetlightArray = [];
 var hubwayArray = [];
 
 // Get the streetlight information
-d3.csv("../datasets/spatial-static_temporal-static/streetlight-locations.csv", function (d) {
+d3.csv("../datasets/static-data/streetlight-locations.csv", function (d) {
   var dataLength = d.length;
   var latList = [];
   var lonList = [];
@@ -17,7 +17,7 @@ d3.csv("../datasets/spatial-static_temporal-static/streetlight-locations.csv", f
   streetlightArray.push(lonList);
 });
 // Get the bike station information
-d3.csv("../datasets/spatial-static_temporal-static/Hubway_Stations.csv", function (d) {
+d3.csv("../datasets/static-data/Hubway_Stations.csv", function (d) {
   var dataLength = d.length;
   var latList = [];
   var lonList = [];

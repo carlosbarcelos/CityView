@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Map to display Spatially Dynamic and Temporally Dynamic data.">
+  <meta name="description" content="Map to display Spatially Static and Temporally Dynamic data.">
   <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-  <title>Spatially Dynamic and Temporally Dynamic Example</title>
+  <title>Spatially Static and Temporally Dynamic Example</title>
   <!-- Bootstrap core CSS -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="../css/carto.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Mapbox integration -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css' rel='stylesheet' />
+  <link href="../css/mapbox.css" rel="stylesheet">
 </head>
 
 <body>
@@ -30,9 +34,9 @@
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Examples</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="spatial-static_temporal-static.html">Static Data</a>
-            <a class="dropdown-item" href="spatial-static_temporal-dynamic.html">Time Series Data</a>
-            <a class="dropdown-item active" href="#">Dynamic Data <span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="staticData.html">Static Data</a>
+            <a class="dropdown-item active" href="#">Time Series Data <span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="dynamicData.html">Dynamic Data</a>
           </div>
         </li>
         <li class="nav-item">
@@ -45,27 +49,20 @@
           <a class="nav-link" href="../team.html">Team</a>
         </li>
       </ul>
-      <div class="btn-group" data-toggle="buttons" id="button_options">
-        <label class="btn btn-primary btn-sm">
-          <input type="radio" name="option" id="pickup" autocomplete="off"> Pickup
-        </label>
-        <label class="btn btn-primary btn-sm">
-          <input type="radio" name="option" id="dropoff" autocomplete="off"> Dropoff
-        </label>
-        <label class="btn btn-primary btn-sm active">
-          <input type="radio" name="option" id="pickup_dropoff" autocomplete="off" checked> Pickup & Dropoff
-        </label>
-      </div>
+      <a class="btn btn-sm btn-primary" href="spatial-static_temporal-dynamic.html" role="button" title="View this map using Leaflet API"><i class="fa fa-refresh" aria-hidden="true"></i> Leaflet</a>
     </div>
   </nav>
   <!-- Insert the Mapbox map -->
-  <iframe id="carto_map" width="100%" height="100%" style="position:absolute;" frameborder="0" src="https://surv-mqp.carto.com/builder/de212310-b737-440f-853a-6bdefd0506eb/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+  <div id ='map'></div>
+  <nav id="menu"></nav>
+  <!-- Javascript for mapbox spatial-static temporal-dynamic -->
+  <script src="../js/mapbox-ss-td.js"></script>
+
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="../js/popper.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/carto-sd-td.js"></script>
 </body>
 </html>

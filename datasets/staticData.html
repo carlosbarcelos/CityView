@@ -4,16 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Map to display Spatially Static and Temporally Dynamic data.">
+  <meta name="description" content="Map to display Spatially Static and Temporally Static data.">
   <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-  <title>Spatially Static and Temporally Dynamic Example</title>
+  <title>Spatially Static and Temporally Static Example</title>
   <!-- Bootstrap core CSS -->
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <!-- Font Awesome icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Leaflet integration -->
+  <!-- Leaflet usage-->
   <link href="../css/leaflet.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
@@ -21,6 +21,10 @@
   <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
   crossorigin=""></script>
+  <!--MarkerCluster-->
+  <link rel="stylesheet" href="../css/MarkerCluster.css">
+  <link rel="stylesheet" href="../css/MarkerCluster.Default.css">
+  <script src="../js/leaflet.markercluster-src.js"></script>
   <!-- Easy Button usage-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
   <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
@@ -43,9 +47,9 @@
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Examples</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="spatial-static_temporal-static.html">Static Data</a>
-            <a class="dropdown-item active" href="#">Time Series Data <span class="sr-only">(current)</span></a>
-            <a class="dropdown-item" href="spatial-dynamic_temporal-dynamic.html">Dynamic Data</a>
+            <a class="dropdown-item active" href="#">Static Data <span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="timeSeriesData.html">Time Series Data</a>
+            <a class="dropdown-item" href="dynamicData.html">Dynamic Data</a>
           </div>
         </li>
         <li class="nav-item">
@@ -58,14 +62,14 @@
           <a class="nav-link" href="../team.html">Team</a>
         </li>
       </ul>
-      <a class="btn btn-sm btn-primary" href="spatial-static_temporal-dynamic_mapbox.html" role="button" title="View this map using Mapbox API"><i class="fa fa-refresh" aria-hidden="true"></i> Mapbox</a>
+      <a class="btn btn-sm btn-primary" href="spatial-static_temporal-static_mapbox.html" role="button" title="View this map using Mapbox API"><i class="fa fa-refresh" aria-hidden="true"></i> Mapbox</a>
     </div>
   </nav>
   <!-- Insert the Mapbox map -->
   <div id="mapid"></div>
-  <!-- Javascript for mapbox spatial-static temporal-dynamic -->
-  <script src="../js/readCSV-ss-td.js"></script>
-  <script src="../js/leaflet-ss-td.js"></script>
+  <!-- Javascript for mapbox spatial-static temporal-static -->
+  <script src="../js/readCSV-ss-ts.js"></script>
+  <script src="../js/leaflet.markerCluster-ss-ts.js"></script>
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->

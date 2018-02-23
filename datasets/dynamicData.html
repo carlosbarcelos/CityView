@@ -1,29 +1,16 @@
-<!-- Many thanks to Shijian Li for help discoverying the Leaflet Canvas and SuperCluster solutions. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Map to display Spatially Static and Temporally Static data.">
+  <meta name="description" content="Map to display Spatially Dynamic and Temporally Dynamic data.">
   <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-  <title>Spatially Static and Temporally Static Example</title>
+  <title>Spatially Dynamic and Temporally Dynamic Example</title>
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-  <!-- Font Awesome icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Leaflet usage-->
-  <link href="../css/leaflet.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
-  integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
-  crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
-  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
-  crossorigin=""></script>
-  <!-- Easy Button usage-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
-  <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="../css/carto.css" rel="stylesheet">
 </head>
 
 <body>
@@ -43,9 +30,9 @@
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Examples</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item active" href="#">Static Data <span class="sr-only">(current)</span></a>
-            <a class="dropdown-item" href="spatial-static_temporal-dynamic.html">Time Series Data</a>
-            <a class="dropdown-item" href="spatial-dynamic_temporal-dynamic.html">Dynamic Data</a>
+            <a class="dropdown-item" href="staticData.html">Static Data</a>
+            <a class="dropdown-item" href="timeSeriesData.html">Time Series Data</a>
+            <a class="dropdown-item active" href="#">Dynamic Data <span class="sr-only">(current)</span></a>
           </div>
         </li>
         <li class="nav-item">
@@ -58,19 +45,27 @@
           <a class="nav-link" href="../team.html">Team</a>
         </li>
       </ul>
-      <a class="btn btn-sm btn-primary" href="spatial-static_temporal-static_mapbox.html" role="button" title="View this map using Mapbox API"><i class="fa fa-refresh" aria-hidden="true"></i> Mapbox</a>
+      <div class="btn-group" data-toggle="buttons" id="button_options">
+        <label class="btn btn-primary btn-sm">
+          <input type="radio" name="option" id="pickup" autocomplete="off"> Pickup
+        </label>
+        <label class="btn btn-primary btn-sm">
+          <input type="radio" name="option" id="dropoff" autocomplete="off"> Dropoff
+        </label>
+        <label class="btn btn-primary btn-sm active">
+          <input type="radio" name="option" id="pickup_dropoff" autocomplete="off" checked> Pickup & Dropoff
+        </label>
+      </div>
     </div>
   </nav>
   <!-- Insert the Mapbox map -->
-  <div id="mapid"></div>
-  <!-- Javascript for mapbox spatial-static temporal-static -->
-  <script src="../js/readCSV-ss-ts.js"></script>
-  <script src="../js/leaflet-ss-ts.js"></script>
+  <iframe id="carto_map" width="100%" height="100%" style="position:absolute;" frameborder="0" src="https://surv-mqp.carto.com/builder/de212310-b737-440f-853a-6bdefd0506eb/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="../js/popper.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/carto-sd-td.js"></script>
 </body>
 </html>

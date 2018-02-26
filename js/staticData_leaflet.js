@@ -24,7 +24,6 @@ var map = L.map('mapid', {
   center: [42.3601, -71.0589],
   zoom: 12,
   layers: [lightView]
-  // layers: [lightView,streetlightsTile,bikestationsTile]
 });
 
 //** Canvas Layers**//
@@ -87,6 +86,7 @@ function addBikeStationLayer(){
   bikeStationCanvas.addTo(map);
 };
 
+// Create content for layer select panel
 var overlayMaps = {
   "<i class='fa fa-lightbulb-o'></i> <span style='color: #b5ba27'>Street Lights</span>": streetlightCanvas,
   "<i class='fa fa-bicycle'></i> <span style='color: #075aff'>Hubway Bike Stations</span>": bikeStationCanvas
@@ -104,9 +104,8 @@ L.easyButton('fa-info-circle fa-lg', function(btn, map){
   informationPopup.setLatLng(map.getCenter()).openOn(map);
 }).addTo(map);
 
-
 //** Pre-load canvas layers **\\
 setTimeout(function(){
-    addStreetlightLayer();
-    addBikeStationLayer();
-}, 1000);
+  addStreetlightLayer();
+  addBikeStationLayer();
+}, 1000); // Delay to allow page to load

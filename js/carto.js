@@ -1,8 +1,8 @@
 /* Select the map based on the radio button selected. Will change URL based on selection. */
 $(document).on('change', '#button_options input:radio:checked', function (event) {
-  // Find and switch based on the button
+  // Collect the button value
   var selection = event.target.id
-
+  // Switch based on value
   if(selection == "pickup"){
     document.getElementById("carto_map").src = "https://surv-mqp.carto.com/builder/7e2ab3b5-a760-4a9d-bc9c-5dba99364757/embed";
   } else if(selection == "dropoff"){

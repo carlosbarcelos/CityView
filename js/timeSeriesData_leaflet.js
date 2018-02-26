@@ -175,6 +175,7 @@ function addFridayRecycling(){
   fridayRecyclingCanvas.addTo(map);
 };
 
+// Create content for layer select panel
 var overlayMaps = {
   "<i class='fa fa-recycle'></i> <span style='color: #E74C3C'>Monday Recycling</span>": mondayRecyclingCanvas,
   "<i class='fa fa-recycle'></i> <span style='color: #E67E22'>Tuesday Recycling</span>": tuesdayRecyclingCanvas,
@@ -196,6 +197,7 @@ L.easyButton('fa-info-circle fa-lg', function(btn, map){
 }).addTo(map);
 
 //** Automatic Carousel **\\
+// Create the play button to be added to the map to activate carousel
 playCarouselButton = L.easyButton({
   id: 'stop-carousel',
   position: 'topleft',
@@ -204,8 +206,8 @@ playCarouselButton = L.easyButton({
   states:[{
     stateName: 'get-center',
     onClick: function(button, map){
-      resetCount();
-      doTimer();
+      resetCount(); // start from the begining
+      doTimer(); // start the cycle
       playCarouselButton.removeFrom(map);
       stopCarouselButton.addTo(map);
     },
@@ -214,6 +216,7 @@ playCarouselButton = L.easyButton({
   }]
 }).addTo(map);
 
+// Create the stop button to be added to the map to deactivate carousel
 stopCarouselButton = L.easyButton({
   id: 'stop-carousel',
   position: 'topleft',
@@ -222,7 +225,7 @@ stopCarouselButton = L.easyButton({
   states:[{
     stateName: 'get-center',
     onClick: function(button, map){
-      stopCount();
+      stopCount(); // end the cycle
       display_panel.remove();
       stopCarouselButton.removeFrom(map);
       playCarouselButton.addTo(map);
@@ -232,11 +235,12 @@ stopCarouselButton = L.easyButton({
   }]
 });
 
-var c=0;
-var t;
-var timer_is_on=0;
-var MAX_COUNT = 4;
+var c=0; // counter
+var t; // timer
+var timer_is_on=0; // timer status flag
+var MAX_COUNT = 4; // days in the week
 
+// Iterate over the days of the week, display the appropriate layer
 function timedCount(){
   switch(c){
     case 0: // Monday Recycling
@@ -266,14 +270,17 @@ function timedCount(){
     break;
   }
   t=setTimeout("timedCount()",1000);
+  // go to next count. If max, start again
   if(c == MAX_COUNT){
     c = 0
   } else{
     c += 1;
   }
+  // update day of week display
   document.getElementById("DoW").innerHTML = DoW;
 }
 
+// Start the carousel
 function doTimer(){
   //Start clean
   display_panel.addTo(map);
@@ -288,41 +295,39 @@ function doTimer(){
   }
 }
 
+// End the carousel
 function stopCount(){
-
   clearTimeout(t);
   timer_is_on=0;
 }
 
+// Reset the counter
 function resetCount(){
   c=0;
 }
 
 //** Day of Week Text**\\
 L.Control.textbox = L.Control.extend({
-
-    onAdd: function(map) {
-        var div = L.DomUtil.create('div', 'display-panel');
-        div.innerHTML = "Day of Week";
-        div.id = 'DoW';
-
-        return div;
-    },
-
-    onRemove: function(map) {}
+  onAdd: function(map) {
+    var div = L.DomUtil.create('div', 'display-panel');
+    div.innerHTML = "Day of Week";
+    div.id = 'DoW';
+    return div;
+  },
+  onRemove: function(map) {}
 });
 
+// Add day of week display
 L.control.textbox = function(opts) {
-    return new L.Control.textbox(opts);
+  return new L.Control.textbox(opts);
 }
-
-var display_panel = L.control.textbox({ position: 'bottomright' });
+var display_panel = L.control.textbox({ position: 'topright' });
 
 //** Pre-load canvas layers **\\
 setTimeout(function(){
-    addMondayRecycling();
-    addTuesdayRecycling();
-    addWednesdayRecycling();
-    addThursdayRecycling();
-    addFridayRecycling();
-}, 1000);
+  addMondayRecycling();
+  addTuesdayRecycling();
+  addWednesdayRecycling();
+  addThursdayRecycling();
+  addFridayRecycling();
+}, 1000); // Delay to allow page to load

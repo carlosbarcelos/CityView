@@ -24,7 +24,6 @@ var map = L.map('mapid', {
   center: [42.3601, -71.0589],
   zoom: 12,
   layers: [lightView]
-  // layers: [lightView,streetlightsTile,bikestationsTile]
 });
 
 //** Markerclusters **//
@@ -40,7 +39,6 @@ function getLatLon(i, latList, lonList) {
 var streetlightCluster = L.markerClusterGroup({
   iconCreateFunction: function(cluster) {
     return L.divIcon({ html: '<div><span>' + cluster.getChildCount() + '</div></span>', className: 'marker-cluster streetlight-cluster', iconSize: L.point(40, 40) });
-    // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
   },
   spiderfyOnMaxZoom: false, // disable spiderfy
   disableClusteringAtZoom: 16, // at this zoom level and below, markers will not be clustered
@@ -72,7 +70,6 @@ function addStreetlightLayer(){
 var bikestationCluster = L.markerClusterGroup({
   iconCreateFunction: function(cluster) {
     return L.divIcon({ html: '<div><span>' + cluster.getChildCount() + '</div></span>', className: 'marker-cluster bikestation-cluster', iconSize: L.point(40, 40) });
-    // return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });
   },
   spiderfyOnMaxZoom: false, // disable spiderfy
   disableClusteringAtZoom: 14, // at this zoom level and below, markers will not be clustered
@@ -119,16 +116,16 @@ L.easyButton('fa-info-circle fa-lg', function(btn, map){
 //** Legend **//
 var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = ["Streetlight", "Hubway Bike Station"],
-        labels = ["../images/legend/legend-streetlight.png","../images/legend/legend-bikestation.png"];
-    div.innerHTML += "<h4>Legend</h4>"
-    // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            (" <img src="+ labels[i] +">") + "&#09" + grades[i] +'<br><br>';
-    }
-    return div;
+  var div = L.DomUtil.create('div', 'info legend'),
+  grades = ["Streetlight", "Hubway Bike Station"],
+  labels = ["../images/legend/legend-streetlight.png","../images/legend/legend-bikestation.png"];
+  div.innerHTML += "<h4>Legend</h4>"
+  // loop through our density intervals and generate a label with a colored square for each interval
+  for (var i = 0; i < grades.length; i++) {
+    div.innerHTML +=
+    (" <img src="+ labels[i] +">") + "&#09" + grades[i] +'<br><br>';
+  }
+  return div;
 };
 legend.addTo(map);
 
@@ -136,4 +133,4 @@ legend.addTo(map);
 setTimeout(function(){
   addStreetlightLayer();
   addBikeStationLayer();
-}, 1000);
+}, 1000); // Delay to allow page to load

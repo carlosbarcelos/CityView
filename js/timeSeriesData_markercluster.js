@@ -344,7 +344,7 @@ var display_panel = L.control.textbox({ position: 'topright' });
 var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
   var div = L.DomUtil.create('div', 'info legend'),
-  grades = ["Moday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  grades = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
   labels = ["../images/legend/legend-mondayRecycle.png","../images/legend/legend-tuesdayRecycle.png", "../images/legend/legend-wednesdayRecycle.png",
   "../images/legend/legend-thursdayRecycle.png","../images/legend/legend-fridayRecycle.png"];
   div.innerHTML += "<h4>Legend</h4>"
